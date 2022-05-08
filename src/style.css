@@ -1,9 +1,8 @@
 h1 {
   text-align: center;
-  padding: 30px 0;
   color: white;
   font-size: 18px;
-  line-height: 20px;
+  padding: 40px 0;
 }
 h2 {
   text-align: center;
@@ -13,16 +12,42 @@ h2 {
   right: 60px;
   text-shadow: 5px 5px 20px rgba(14, 14, 14);
 }
-.day-celebration {
-  width: 67%;
-}
 
 .row {
   text-align: center;
   margin: 0;
 }
 .top {
-  padding: 10px;
+  padding-top: 10px;
+  line-height: 0;
+}
+.sun,
+.moon {
+  width: 100%;
+  display: block;
+  margin: 0 auto;
+}
+.sunrise1,
+.sunset2 {
+  position: relative;
+  bottom: 50px;
+  font-size: 14px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  text-align: center;
+  text-shadow: 4px 4px 8px rgba(250, 246, 246, 0.5);
+}
+.sunrise,
+.sunset {
+  position: relative;
+  bottom: 18px;
+}
+
+.sunrise1 {
+  color: #c62874;
+}
+
+.sunset2 {
+  color: #2e486b;
 }
 .night {
   background: linear-gradient(95deg, rgb(52, 7, 63) 10%, rgb(15, 1, 29) 100%);
@@ -33,52 +58,11 @@ h2 {
   max-width: 600px;
 }
 
-.sunrise,
-.sunset {
-  padding: 20px;
-  font-size: 15px;
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-  text-align: center;
-  border-radius: 50%;
-  width: 90px;
-  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
-  text-shadow: 4px 4px 8px rgba(250, 246, 246, 0.5);
-}
-.sunrise {
-  background: rgb(239, 239, 106);
-  color: rgb(233, 154, 27);
-}
-.sunset {
-  background: black;
-  color: rgb(250, 248, 248);
-}
-.main-emoji {
-  width: 90px;
-  margin: 0px 10px;
-  text-align: center;
-}
-.sun-emoji {
-  position: relative;
-  bottom: 490px;
-  left: 45px;
-  color: rgb(233, 154, 27);
-  font-size: 60px;
-  text-shadow: 3px 3px 5px rgba(245, 241, 241);
-}
-.moon-emoji {
-  position: relative;
-  bottom: 490px;
-  left: -35px;
-  color: rgb(252, 251, 251);
-  font-size: 60px;
-  text-shadow: 3px 3px 5px rgb(226, 236, 115);
-}
 .city-form {
   text-align: center;
   display: block;
   margin: 0 auto;
   line-height: 30px;
-  padding-top: 10px;
 }
 .inside-form,
 .my-city {
@@ -121,7 +105,7 @@ h2 {
 }
 .forecast-table {
   position: relative;
-  bottom: 160px;
+  bottom: 75px;
 }
 
 .thunder {
@@ -207,7 +191,7 @@ h2 {
 }
 
 .portfolio-link {
-  color: #f9bde5;
+  color: #cb92df;
   text-decoration: none;
 }
 

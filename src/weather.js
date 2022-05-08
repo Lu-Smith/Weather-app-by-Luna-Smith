@@ -187,11 +187,11 @@ function timeSearchCity(response) {
   sunriseTime.innerHTML = moment
     .utc(sunrise, "X")
     .add(timezone, "seconds")
-    .format("HH:mm a");
+    .format("HH:mm");
   sunsetTime.innerHTML = moment
     .utc(sunset, "X")
     .add(timezone, "seconds")
-    .format("HH:mm a");
+    .format("HH:mm");
 
   let now = new Date();
   let localTime = now.getTime();
