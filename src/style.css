@@ -174,27 +174,31 @@ h2 {
 }
 
 .weather-forecast {
-  text-align: right;
+  text-align: center;
   font-family: "Josefin Sans", sans-serif;
   font-size: 20px;
-  padding-top: 60px;
+  padding-top: 80px;
   color: #711a75;
   text-shadow: 3px 3px 5px rgba(250, 247, 247, 0.5);
 }
 
 .created-by {
-  text-align: right;
+  text-align: center;
   font-family: "Josefin Sans", sans-serif;
   font-size: 15px;
   padding-top: 10px;
   color: #711a75;
 }
 
-.portfolio-link {
-  color: #cb92df;
+.portfolio-link,
+.GitHub,
+.Netlify {
+  color: #0f030f;
   text-decoration: none;
 }
 
-.portfolio-link:hover {
+.portfolio-link:hover,
+.GitHub:hover,
+.Netlify:hover {
   color: #f7f1f5;
 }

@@ -477,7 +477,6 @@ function nextHourSearchWeather(response) {
   nextDaySearchHumidity5.innerHTML = Math.round(
     response.data.list[4].main.humidity
   );
-  console.log(response.data.list[4]);
   let nextHourSearchTime1 = document.querySelector("#current-hour1");
   let nextSearchHour1 = response.data.list[0].dt;
   let timezone = response.data.city.timezone;
