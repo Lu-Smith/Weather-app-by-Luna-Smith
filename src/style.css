@@ -52,10 +52,11 @@ h2 {
 .night {
   background: linear-gradient(95deg, rgb(52, 7, 63) 10%, rgb(15, 1, 29) 100%);
 }
-.container {
+.weather-app {
   background: rgba(218, 164, 207, 0.626);
   box-shadow: 3px 6px 10px 8px rgba(0, 0, 0, 0.5);
   max-width: 600px;
+  border-radius: 10px;
 }
 
 .city-form {
@@ -105,7 +106,8 @@ h2 {
 }
 .forecast-table {
   position: relative;
-  bottom: 75px;
+  bottom: 85px;
+  padding: 10px;
 }
 
 .thunder {
@@ -168,6 +170,9 @@ h2 {
   color: white;
 }
 
+.footnote {
+  margin-top: 30px;
+}
 .weather-forecast {
   text-align: center;
   font-family: "Josefin Sans", sans-serif;
@@ -181,7 +186,7 @@ h2 {
   text-align: center;
   font-family: "Josefin Sans", sans-serif;
   font-size: 15px;
-  padding-top: 10px;
+  padding: 10px;
   color: #711a75;
 }
 
