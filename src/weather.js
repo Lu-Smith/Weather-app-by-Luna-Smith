@@ -660,3 +660,74 @@ function initialCity(city) {
   axios.get(apiUrlHourly).then(nextHourSearchWeather);
 }
 initialCity("New York");
+
+// next day weather
+function showWeatherForecastNextDay0(event) {
+  document.querySelector("#current-day").style.color = "#711a75";
+  document.querySelector("#button-day1").style.color = "white";
+  document.querySelector("#button-day2").style.color = "white";
+  document.querySelector("#button-day3").style.color = "white";
+  document.querySelector("#button-day4").style.color = "white";
+  document.querySelector("#button-day5").style.color = "white";
+}
+function showWeatherForecastNextDay1(event) {
+  document.querySelector("#current-day").style.color = "white";
+  document.querySelector("#button-day1").style.color = "#711a75";
+  document.querySelector("#button-day2").style.color = "white";
+  document.querySelector("#button-day3").style.color = "white";
+  document.querySelector("#button-day4").style.color = "white";
+  document.querySelector("#button-day5").style.color = "white";
+}
+
+function showWeatherForecastNextDay2(event) {
+  document.querySelector("#current-day").style.color = "white";
+  document.querySelector("#button-day1").style.color = "white";
+  document.querySelector("#button-day2").style.color = "#711a75";
+  document.querySelector("#button-day3").style.color = "white";
+  document.querySelector("#button-day4").style.color = "white";
+  document.querySelector("#button-day5").style.color = "white";
+}
+
+function showWeatherForecastNextDay3(event) {
+  document.querySelector("#current-day").style.color = "white";
+  document.querySelector("#button-day1").style.color = "white";
+  document.querySelector("#button-day2").style.color = "white";
+  document.querySelector("#button-day3").style.color = "#711a75";
+  document.querySelector("#button-day4").style.color = "white";
+  document.querySelector("#button-day5").style.color = "white";
+}
+
+function showWeatherForecastNextDay4(event) {
+  document.querySelector("#current-day").style.color = "white";
+  document.querySelector("#button-day1").style.color = "white";
+  document.querySelector("#button-day2").style.color = "white";
+  document.querySelector("#button-day3").style.color = "white";
+  document.querySelector("#button-day4").style.color = "#711a75";
+  document.querySelector("#button-day5").style.color = "white";
+}
+
+function showWeatherForecastNextDay5(event) {
+  document.querySelector("#current-day").style.color = "white";
+  document.querySelector("#button-day1").style.color = "white";
+  document.querySelector("#button-day2").style.color = "white";
+  document.querySelector("#button-day3").style.color = "white";
+  document.querySelector("#button-day4").style.color = "white";
+  document.querySelector("#button-day5").style.color = "#711a75";
+}
+let nextDay0Button = document.querySelector("#current-day");
+nextDay0Button.addEventListener("click", showWeatherForecastNextDay0);
+
+let nextDay1Button = document.querySelector("#button-day1");
+nextDay1Button.addEventListener("click", showWeatherForecastNextDay1);
+
+let nextDay2Button = document.querySelector("#button-day2");
+nextDay2Button.addEventListener("click", showWeatherForecastNextDay2);
+
+let nextDay3Button = document.querySelector("#button-day3");
+nextDay3Button.addEventListener("click", showWeatherForecastNextDay3);
+
+let nextDay4Button = document.querySelector("#button-day4");
+nextDay4Button.addEventListener("click", showWeatherForecastNextDay4);
+
+let nextDay5Button = document.querySelector("#button-day5");
+nextDay5Button.addEventListener("click", showWeatherForecastNextDay5);

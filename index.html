@@ -80,7 +80,7 @@
       </section>
       <section class="forecast-table">
         <div class="row forecast">
-          <div class="col-3 main today">
+          <div class="col main today">
             <button class="button-today" id="current-day">Today</button>
           </div>
           <div class="col main day">
@@ -98,48 +98,43 @@
           <div class="col main day">
             <button class="button-day" id="button-day5">Fri</button>
           </div>
-          <div class="col main today">
-            <button class="button-today">></button>
+        </div>
+        <div class="row forecast">
+          <div class="col today" id="current-hour">10:00</div>
+          <div class="col day 1" id="current-hour1">10:00</div>
+          <div class="col day 2" id="current-hour2">10:00</div>
+          <div class="col day 3" id="current-hour3">10:00</div>
+          <div class="col day 4" id="current-hour4">10:00</div>
+          <div class="col day 5" id="current-hour5">10:00</div>
+        </div>
+        <div class="row forecast">
+          <div class="col today" id="main-emoji">
+            <img src="media/broken clouds by Luna Smith.png" alt="broken clouds
+            emoji by Luna Smith" width="50" / >
+          </div>
+          <div class="col day 1" id="emoji1">
+            <img src="media/broken clouds by Luna Smith.png" alt="broken clouds
+            emoji by Luna Smith" width="50" / >
+          </div>
+          <div class="col day 2" id="emoji2">
+            <img src="media/broken clouds by Luna Smith.png" alt="broken clouds
+            emoji by Luna Smith" width="50" / >
+          </div>
+          <div class="col day 3" id="emoji3">
+            <img src="media/broken clouds by Luna Smith.png" alt="broken clouds
+            emoji by Luna Smith" width="50" / >
+          </div>
+          <div class="col day 4" id="emoji4">
+            <img src="media/broken clouds by Luna Smith.png" alt="broken clouds
+            emoji by Luna Smith" width="50" / >
+          </div>
+          <div class="col day 5" id="emoji5">
+            <img src="media/broken clouds by Luna Smith.png" alt="broken clouds
+            emoji by Luna Smith" width="50" / >
           </div>
         </div>
         <div class="row forecast">
-          <div class="col-3 today" id="current-hour">10:00</div>
-          <div class="col day" id="current-hour1">10:00</div>
-          <div class="col day" id="current-hour2">10:00</div>
-          <div class="col day" id="current-hour3">10:00</div>
-          <div class="col day" id="current-hour4">10:00</div>
-          <div class="col day" id="current-hour5">10:00</div>
-          <div class="col day"></div>
-        </div>
-        <div class="row forecast">
-          <div class="col-3 today" id="main-emoji">
-            <img src="media/broken clouds by Luna Smith.png" alt="broken clouds
-            emoji by Luna Smith" width="50" / >
-          </div>
-          <div class="col day" id="emoji1">
-            <img src="media/broken clouds by Luna Smith.png" alt="broken clouds
-            emoji by Luna Smith" width="50" / >
-          </div>
-          <div class="col day" id="emoji2">
-            <img src="media/broken clouds by Luna Smith.png" alt="broken clouds
-            emoji by Luna Smith" width="50" / >
-          </div>
-          <div class="col day" id="emoji3">
-            <img src="media/broken clouds by Luna Smith.png" alt="broken clouds
-            emoji by Luna Smith" width="50" / >
-          </div>
-          <div class="col day" id="emoji4">
-            <img src="media/broken clouds by Luna Smith.png" alt="broken clouds
-            emoji by Luna Smith" width="50" / >
-          </div>
-          <div class="col day" id="emoji5">
-            <img src="media/broken clouds by Luna Smith.png" alt="broken clouds
-            emoji by Luna Smith" width="50" / >
-          </div>
-          <div class="col day"></div>
-        </div>
-        <div class="row forecast">
-          <div class="col-3 today" id="today-temperature-table">16°C</div>
+          <div class="col today" id="today-temperature-table">16°C</div>
           <div class="col day day-temperature-table" id="next-hour-temp-1">
             18°C
           </div>
@@ -155,10 +150,9 @@
           <div class="col day day-temperature-table" id="next-hour-temp-5">
             14°C
           </div>
-          <div class="col day"></div>
         </div>
         <div class="row forecast">
-          <div class="col-3 today">
+          <div class="col today">
             🍃<span id="today-SpeedWind">16</span> mph
           </div>
           <div class="col day">🍃<span id="SpeedWind1">16</span></div>
@@ -166,10 +160,9 @@
           <div class="col day">🍃<span id="SpeedWind3">14</span></div>
           <div class="col day">🍃<span id="SpeedWind4">15</span></div>
           <div class="col day">🍃<span id="SpeedWind5">11</span></div>
-          <div class="col day"></div>
         </div>
         <div class="row forecast">
-          <div class="col-3 today">
+          <div class="col today">
             💧
             <span id="today-rain">16</span>%
           </div>
@@ -178,9 +171,9 @@
           <div class="col day">💧<span id="rain3">14</span>%</div>
           <div class="col day">💧<span id="rain4">15</span>%</div>
           <div class="col day">💧<span id="rain5">11</span>%</div>
-          <div class="col day"></div>
         </div>
         <br />
+
         <div class="date" id="date">Today is Thursday, 25th of April 2022</div>
         <div class="weather-forecast">Weather Forecast</div>
         <div class="created-by">
