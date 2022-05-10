@@ -85,6 +85,17 @@ function currentTime() {
   }
   let currentHour = document.querySelector("#current-hour");
   currentHour.innerHTML = `${hour}:${minute}`;
+
+  // change image
+
+  let imageElement = document.querySelector("#image");
+  if (hour > 8 && hour < 18) {
+    imageElement.setAttribute("src", `media/day by Luna Smith.jpg`);
+  } else if (hour > 17 && hour < 21) {
+    imageElement.setAttribute("src", `media/sunset by Luna Smith.jpg`);
+  } else if (hour > 21) {
+    imageElement.setAttribute("src", `media/thunder by Luna Smith.jpg`);
+  }
 }
 currentTime();
 
@@ -243,6 +254,16 @@ function timeSearchCity(response) {
     today.innerHTML = `Today is <span class="highlightDay">${day}</span>, ${date}rd of ${month} ${year}`;
   } else {
     today.innerHTML = `Today is <span class="highlightDay">${day}</span>, ${date}th of ${month} ${year}`;
+  }
+  // change image
+
+  let imageElement = document.querySelector("#image");
+  if (hour > 8 && hour < 18) {
+    imageElement.setAttribute("src", `media/day by Luna Smith.jpg`);
+  } else if (hour > 17 && hour < 21) {
+    imageElement.setAttribute("src", `media/sunset by Luna Smith.jpg`);
+  } else if (hour > 21) {
+    imageElement.setAttribute("src", `media/thunder by Luna Smith.jpg`);
   }
 }
 function speedWindSearchCity(response) {
@@ -468,7 +489,6 @@ function nextHourSearchWeather(response) {
   nextDaySearchSpeedWind5.innerHTML = Math.round(
     response.data.list[4].wind.speed
   );
-
   let nextDaySearchHumidity1 = document.querySelector("#rain1");
   nextDaySearchHumidity1.innerHTML = Math.round(
     response.data.list[0].main.humidity
@@ -619,7 +639,9 @@ function displayCity(response) {
 }
 function formCitySearch(event) {
   event.preventDefault();
+
   let city = document.querySelector("#search-city").value;
+  city = city.trim();
   initialCity(city);
 }
 
@@ -663,6 +685,24 @@ function initialCity(city) {
   let apiUrl = `${apiEndElement}q=${city}&appid=${apiKey}&units=${units}`;
   let apiUrlHourly = `${apiEndElementHourly}q=${city}&appid=${apiKey}&units=${units}`;
 
+  let nextDay0Button = document.querySelector("#current-day");
+  nextDay0Button.addEventListener("click", showWeatherForecastNextDay0);
+
+  let nextDay1Button = document.querySelector("#button-day1");
+  nextDay1Button.addEventListener("click", showWeatherForecastNextDay1);
+
+  let nextDay2Button = document.querySelector("#button-day2");
+  nextDay2Button.addEventListener("click", showWeatherForecastNextDay2);
+
+  let nextDay3Button = document.querySelector("#button-day3");
+  nextDay3Button.addEventListener("click", showWeatherForecastNextDay3);
+
+  let nextDay4Button = document.querySelector("#button-day4");
+  nextDay4Button.addEventListener("click", showWeatherForecastNextDay4);
+
+  let nextDay5Button = document.querySelector("#button-day5");
+  nextDay5Button.addEventListener("click", showWeatherForecastNextDay5);
+
   axios.get(apiUrl).then(emoji);
   axios.get(apiUrl).then(currentSearchTemperature);
   axios.get(apiUrl).then(timeSearchCity);
@@ -674,6 +714,7 @@ function initialCity(city) {
 initialCity("New York");
 
 // next day weather
+
 function showWeatherForecastNextDay0(event) {
   document.querySelector("#current-day").style.color = "#711a75";
   document.querySelector("#button-day1").style.color = "white";
@@ -726,20 +767,3 @@ function showWeatherForecastNextDay5(event) {
   document.querySelector("#button-day4").style.color = "white";
   document.querySelector("#button-day5").style.color = "#711a75";
 }
-let nextDay0Button = document.querySelector("#current-day");
-nextDay0Button.addEventListener("click", showWeatherForecastNextDay0);
-
-let nextDay1Button = document.querySelector("#button-day1");
-nextDay1Button.addEventListener("click", showWeatherForecastNextDay1);
-
-let nextDay2Button = document.querySelector("#button-day2");
-nextDay2Button.addEventListener("click", showWeatherForecastNextDay2);
-
-let nextDay3Button = document.querySelector("#button-day3");
-nextDay3Button.addEventListener("click", showWeatherForecastNextDay3);
-
-let nextDay4Button = document.querySelector("#button-day4");
-nextDay4Button.addEventListener("click", showWeatherForecastNextDay4);
-
-let nextDay5Button = document.querySelector("#button-day5");
-nextDay5Button.addEventListener("click", showWeatherForecastNextDay5);
