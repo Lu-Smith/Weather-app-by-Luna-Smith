@@ -275,6 +275,8 @@ function emoji(response) {
     mainEmoji.innerHTML = `<img src="media/rain by Luna Smith.png"  alt="rain emoji by Luna Smith" width="50" / >`;
   } else if (response.data.weather[0].description === "storm") {
     mainEmoji.innerHTML = `<img src="media/thunder by Luna Smith.png"  alt="thunder emoji by Luna Smith" width="50" / >`;
+  } else if (response.data.list[0].weather[0].description === "snow") {
+    mainEmoji.innerHTML = `<img src="media/snow by Luna Smith.png"  alt="snow emoji by Luna Smith" width="50" / >`;
   }
 }
 
@@ -312,6 +314,8 @@ function nextHourSearchWeather(response) {
     day1Emoji.innerHTML = `<img src="media/rain by Luna Smith.png"  alt="rain emoji by Luna Smith" width="50" / >`;
   } else if (response.data.list[1].weather[0].description === "storm") {
     day1Emoji.innerHTML = `<img src="media/thunder by Luna Smith.png"  alt="thunder emoji by Luna Smith" width="50" / >`;
+  } else if (response.data.list[1].weather[0].description === "snow") {
+    day1Emoji.innerHTML = `<img src="media/snow by Luna Smith.png"  alt="snow emoji by Luna Smith" width="50" / >`;
   }
   let day2Emoji = document.querySelector("#emoji2");
   if (response.data.list[2].weather[0].description === "overcast clouds") {
@@ -342,6 +346,8 @@ function nextHourSearchWeather(response) {
     day2Emoji.innerHTML = `<img src="media/rain by Luna Smith.png"  alt="rain emoji by Luna Smith" width="50" / >`;
   } else if (response.data.list[2].weather[0].description === "storm") {
     day2Emoji.innerHTML = `<img src="media/thunder by Luna Smith.png"  alt="thunder emoji by Luna Smith" width="50" / >`;
+  } else if (response.data.list[2].weather[0].description === "snow") {
+    day2Emoji.innerHTML = `<img src="media/snow by Luna Smith.png"  alt="snow emoji by Luna Smith" width="50" / >`;
   }
   let day3Emoji = document.querySelector("#emoji3");
   if (response.data.list[3].weather[0].description === "overcast clouds") {
@@ -372,6 +378,8 @@ function nextHourSearchWeather(response) {
     day3Emoji.innerHTML = `<img src="media/rain by Luna Smith.png"  alt="rain emoji by Luna Smith" width="50" / >`;
   } else if (response.data.list[3].weather[0].description === "storm") {
     day3Emoji.innerHTML = `<img src="media/thunder by Luna Smith.png"  alt="thunder emoji by Luna Smith" width="50" / >`;
+  } else if (response.data.list[3].weather[0].description === "snow") {
+    day3Emoji.innerHTML = `<img src="media/snow by Luna Smith.png"  alt="snow emoji by Luna Smith" width="50" / >`;
   }
   let day4Emoji = document.querySelector("#emoji4");
   if (response.data.list[4].weather[0].description === "overcast clouds") {
@@ -402,6 +410,8 @@ function nextHourSearchWeather(response) {
     day4Emoji.innerHTML = `<img src="media/rain by Luna Smith.png"  alt="rain emoji by Luna Smith" width="50" / >`;
   } else if (response.data.list[4].weather[0].description === "storm") {
     day4Emoji.innerHTML = `<img src="media/thunder by Luna Smith.png"  alt="thunder emoji by Luna Smith" width="50" / >`;
+  } else if (response.data.list[4].weather[0].description === "snow") {
+    day4Emoji.innerHTML = `<img src="media/snow by Luna Smith.png"  alt="snow emoji by Luna Smith" width="50" / >`;
   }
   let day5Emoji = document.querySelector("#emoji5");
   if (response.data.list[5].weather[0].description === "overcast clouds") {
@@ -434,6 +444,8 @@ function nextHourSearchWeather(response) {
     day5Emoji.innerHTML = `<img src="media/rain by Luna Smith.png"  alt="rain emoji by Luna Smith" width="50" / >`;
   } else if (response.data.list[5].weather[0].description === "storm") {
     day5Emoji.innerHTML = `<img src="media/thunder by Luna Smith.png"  alt="thunder emoji by Luna Smith" width="50" / >`;
+  } else if (response.data.list[5].weather[0].description === "snow") {
+    day5Emoji.innerHTML = `<img src="media/snow by Luna Smith.png"  alt="snow emoji by Luna Smith" width="50" / >`;
   }
 
   let nextDaySearchSpeedWind1 = document.querySelector("#SpeedWind1");
