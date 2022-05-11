@@ -89,15 +89,15 @@ function currentTime() {
   // change image
 
   let imageElement = document.querySelector("#image");
-  if (hour > 5 && hour < 8) {
+  if (hour >= 5 && hour < 8) {
     imageElement.setAttribute("src", `media/sunrise by Luna Smith.jpg`);
-  } else if (hour > 8 && hour < 18) {
+  } else if (hour >= 8 && hour < 18) {
     imageElement.setAttribute("src", `media/day by Luna Smith.jpg`);
-  } else if (hour > 17 && hour < 21) {
+  } else if (hour >= 18 && hour < 21) {
     imageElement.setAttribute("src", `media/sunset by Luna Smith.jpg`);
-  } else if (hour > 21) {
+  } else if (hour >= 21 && hour < 23) {
     imageElement.setAttribute("src", `media/thunder by Luna Smith.jpg`);
-  } else if (hour > 23) {
+  } else {
     imageElement.setAttribute("src", `media/night by Luna Smith.jpg`);
   }
 }
@@ -262,15 +262,15 @@ function timeSearchCity(response) {
   // change image
 
   let imageElement = document.querySelector("#image");
-  if (hour > 5 && hour < 8) {
+  if (hour >= 5 && hour < 8) {
     imageElement.setAttribute("src", `media/sunrise by Luna Smith.jpg`);
-  } else if (hour > 8 && hour < 18) {
+  } else if (hour >= 8 && hour < 18) {
     imageElement.setAttribute("src", `media/day by Luna Smith.jpg`);
-  } else if (hour > 17 && hour < 21) {
+  } else if (hour >= 18 && hour < 21) {
     imageElement.setAttribute("src", `media/sunset by Luna Smith.jpg`);
-  } else if (hour > 21) {
+  } else if (hour >= 21 && hour < 23) {
     imageElement.setAttribute("src", `media/thunder by Luna Smith.jpg`);
-  } else if (hour > 23) {
+  } else {
     imageElement.setAttribute("src", `media/night by Luna Smith.jpg`);
   }
 }
