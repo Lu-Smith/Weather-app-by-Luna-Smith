@@ -22,7 +22,7 @@
     />
     <script src="https://momentjs.com/downloads/moment.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <link rel="stylesheet" href="src/style.css" />
+    <link rel="stylesheet" href="src/style_today.css" id="stylesheet" />
 
     <title>Weather Forecast - Luna Smith</title>
   </head>
@@ -69,7 +69,7 @@
           <img
             src="media/night by Luna Smith.jpg"
             alt="thunder by Luna Smith"
-            class="thunder"
+            class="day-image"
             id="image"
           />
           <div class="row today-weather">
@@ -81,23 +81,35 @@
         </section>
         <section class="forecast-table">
           <div class="row forecast">
-            <div class="col main today">
-              <button class="button-today" id="current-day">Today</button>
+            <div class="col main day today" id="table-button0">
+              <button class="button-day button-today" id="current-day">
+                Today
+              </button>
             </div>
-            <div class="col main day">
-              <button class="button-day" id="button-day1">Mon</button>
+            <div class="col main day" id="table-button1">
+              <button class="button-day button-day1" id="button-day1">
+                Mon
+              </button>
             </div>
-            <div class="col main day">
-              <button class="button-day" id="button-day2">Tue</button>
+            <div class="col main day" id="table-button2">
+              <button class="button-day button-day2" id="button-day2">
+                Tue
+              </button>
             </div>
-            <div class="col main day">
-              <button class="button-day" id="button-day3">Wed</button>
+            <div class="col main day" id="table-button3">
+              <button class="button-day button-day3" id="button-day3">
+                Wed
+              </button>
             </div>
-            <div class="col main day">
-              <button class="button-day" id="button-day4">Thu</button>
+            <div class="col main day" id="table-button4">
+              <button class="button-day button-day4" id="button-day4">
+                Thu
+              </button>
             </div>
-            <div class="col main day">
-              <button class="button-day" id="button-day5">Fri</button>
+            <div class="col main day" id="table-button5">
+              <button class="button-day button-day5" id="button-day5">
+                Fri
+              </button>
             </div>
           </div>
           <div class="row forecast">

@@ -265,8 +265,8 @@ function timeSearchCity(response) {
   } else {
     today.innerHTML = `Today is <span class="highlightDay">${day}</span>, ${date}th of ${month} ${year}`;
   }
-  // change image
 
+  // change image
   let imageElement = document.querySelector("#image");
   if (hour >= 5 && hour < 8) {
     imageElement.setAttribute("src", `media/sunrise by Luna Smith.jpg`);
@@ -776,7 +776,6 @@ let form = document.querySelector("#form");
 form.addEventListener("submit", formCitySearch);
 
 // my city button
-
 function showCurrentPosition(position) {
   let apiKey = "735bf932678c0291fa1c42303b18350e";
   let apiEndElement = "https://api.openweathermap.org/data/2.5/weather?";
@@ -840,57 +839,106 @@ function initialCity(city) {
 }
 initialCity("New York");
 
-// next day weather
+// next day weather buttons
+
+let button0 = document.querySelector("#current-day");
+let button1 = document.querySelector("#button-day1");
+let button2 = document.querySelector("#button-day2");
+let button3 = document.querySelector("#button-day3");
+let button4 = document.querySelector("#button-day4");
+let button5 = document.querySelector("#button-day5");
+let tableDay0 = document.querySelector("#table-button0");
+let tableDay1 = document.querySelector("#table-button1");
+let tableDay2 = document.querySelector("#table-button2");
+let tableDay3 = document.querySelector("#table-button3");
+let tableDay4 = document.querySelector("#table-button4");
+let tableDay5 = document.querySelector("#table-button5");
 
 function showWeatherForecastNextDay0(event) {
-  document.querySelector("#current-day").style.color = "#711a75";
-  document.querySelector("#button-day1").style.color = "white";
-  document.querySelector("#button-day2").style.color = "white";
-  document.querySelector("#button-day3").style.color = "white";
-  document.querySelector("#button-day4").style.color = "white";
-  document.querySelector("#button-day5").style.color = "white";
+  button0.classList.add("button-today");
+  button1.classList.remove("button-today");
+  button2.classList.remove("button-today");
+  button3.classList.remove("button-today");
+  button4.classList.remove("button-today");
+  button5.classList.remove("button-today");
+  tableDay0.classList.add("today");
+  tableDay1.classList.remove("today");
+  tableDay2.classList.remove("today");
+  tableDay3.classList.remove("today");
+  tableDay4.classList.remove("today");
+  tableDay5.classList.remove("today");
 }
 function showWeatherForecastNextDay1(event) {
-  document.querySelector("#current-day").style.color = "white";
-  document.querySelector("#button-day1").style.color = "#711a75";
-  document.querySelector("#button-day2").style.color = "white";
-  document.querySelector("#button-day3").style.color = "white";
-  document.querySelector("#button-day4").style.color = "white";
-  document.querySelector("#button-day5").style.color = "white";
+  button0.classList.remove("button-today");
+  button1.classList.add("button-today");
+  button2.classList.remove("button-today");
+  button3.classList.remove("button-today");
+  button4.classList.remove("button-today");
+  button5.classList.remove("button-today");
+  tableDay0.classList.remove("today");
+  tableDay1.classList.add("today");
+  tableDay2.classList.remove("today");
+  tableDay3.classList.remove("today");
+  tableDay4.classList.remove("today");
+  tableDay5.classList.remove("today");
 }
 
 function showWeatherForecastNextDay2(event) {
-  document.querySelector("#current-day").style.color = "white";
-  document.querySelector("#button-day1").style.color = "white";
-  document.querySelector("#button-day2").style.color = "#711a75";
-  document.querySelector("#button-day3").style.color = "white";
-  document.querySelector("#button-day4").style.color = "white";
-  document.querySelector("#button-day5").style.color = "white";
+  button0.classList.remove("button-today");
+  button1.classList.remove("button-today");
+  button2.classList.add("button-today");
+  button3.classList.remove("button-today");
+  button4.classList.remove("button-today");
+  button5.classList.remove("button-today");
+  tableDay0.classList.remove("today");
+  tableDay1.classList.remove("today");
+  tableDay2.classList.add("today");
+  tableDay3.classList.remove("today");
+  tableDay4.classList.remove("today");
+  tableDay5.classList.remove("today");
 }
 
 function showWeatherForecastNextDay3(event) {
-  document.querySelector("#current-day").style.color = "white";
-  document.querySelector("#button-day1").style.color = "white";
-  document.querySelector("#button-day2").style.color = "white";
-  document.querySelector("#button-day3").style.color = "#711a75";
-  document.querySelector("#button-day4").style.color = "white";
-  document.querySelector("#button-day5").style.color = "white";
+  button0.classList.remove("button-today");
+  button1.classList.remove("button-today");
+  button2.classList.remove("button-today");
+  button3.classList.add("button-today");
+  button4.classList.remove("button-today");
+  button5.classList.remove("button-today");
+  tableDay0.classList.remove("today");
+  tableDay1.classList.remove("today");
+  tableDay2.classList.remove("today");
+  tableDay3.classList.add("today");
+  tableDay4.classList.remove("today");
+  tableDay5.classList.remove("today");
 }
 
 function showWeatherForecastNextDay4(event) {
-  document.querySelector("#current-day").style.color = "white";
-  document.querySelector("#button-day1").style.color = "white";
-  document.querySelector("#button-day2").style.color = "white";
-  document.querySelector("#button-day3").style.color = "white";
-  document.querySelector("#button-day4").style.color = "#711a75";
-  document.querySelector("#button-day5").style.color = "white";
+  button0.classList.remove("button-today");
+  button1.classList.remove("button-today");
+  button2.classList.remove("button-today");
+  button3.classList.remove("button-today");
+  button4.classList.add("button-today");
+  button5.classList.remove("button-today");
+  tableDay0.classList.remove("today");
+  tableDay1.classList.remove("today");
+  tableDay2.classList.remove("today");
+  tableDay3.classList.remove("today");
+  tableDay4.classList.add("today");
+  tableDay5.classList.remove("today");
 }
 
 function showWeatherForecastNextDay5(event) {
-  document.querySelector("#current-day").style.color = "white";
-  document.querySelector("#button-day1").style.color = "white";
-  document.querySelector("#button-day2").style.color = "white";
-  document.querySelector("#button-day3").style.color = "white";
-  document.querySelector("#button-day4").style.color = "white";
-  document.querySelector("#button-day5").style.color = "#711a75";
+  button0.classList.remove("button-today");
+  button1.classList.remove("button-today");
+  button2.classList.remove("button-today");
+  button3.classList.remove("button-today");
+  button4.classList.remove("button-today");
+  button5.classList.add("button-today");
+  tableDay0.classList.remove("today");
+  tableDay1.classList.remove("today");
+  tableDay2.classList.remove("today");
+  tableDay3.classList.remove("today");
+  tableDay4.classList.remove("today");
+  tableDay5.classList.add("today");
 }

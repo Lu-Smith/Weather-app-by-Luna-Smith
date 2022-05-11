@@ -108,7 +108,7 @@ h2 {
   padding: 10px;
 }
 
-.thunder {
+.day-image {
   display: block;
   margin: 0 auto;
   width: 330px;
@@ -126,6 +126,14 @@ h2 {
 .main {
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
 }
+
+.day {
+  padding: 8px;
+  font-size: 16px;
+  font-family: "Times New Roman", Times, serif;
+  color: #fff;
+  font-size: 16px;
+}
 .today {
   background: rgb(239, 239, 106);
   padding: 8px;
@@ -134,13 +142,6 @@ h2 {
   box-shadow: 5px 5px 5px #00000080;
   font-size: 18px;
   font-family: "Times New Roman", Times, serif;
-}
-.day {
-  padding: 8px;
-  font-size: 16px;
-  font-family: "Times New Roman", Times, serif;
-  color: #fff;
-  font-size: 16px;
 }
 .button-day {
   background: #f582a7;
@@ -173,7 +174,7 @@ h2 {
   text-align: center;
   font-family: "Josefin Sans", sans-serif;
   font-size: 20px;
-  padding-top: 80px;
+  padding-top: 200px;
   color: #711a75;
   text-shadow: 3px 3px 5px rgba(250, 247, 247, 0.5);
 }
