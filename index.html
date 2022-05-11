@@ -26,223 +26,225 @@
 
     <title>Weather Forecast - Luna Smith</title>
   </head>
-  <body class="night-theme" id="night-theme">
-    <div class="container">
-      <div class="weather-app">
-        <div class="row top">
-          <div class="col-3">
-            <img src="media/sun by Luna Smith.png" alt="sun emoji by Luna Smith"
-            class="sun" / >
-            <div class="sunrise1">
-              <div class="sunrise" id="sunrise">6:56</div>
-              am
+  <body>
+    <div class="night-theme" id="night-theme">
+      <div class="container">
+        <div class="weather-app" id="weather-app">
+          <div class="row top">
+            <div class="col-3">
+              <img src="media/sun by Luna Smith.png" alt="sun emoji by Luna
+              Smith" class="sun" / >
+              <div class="sunrise1">
+                <div class="sunrise" id="sunrise">6:56</div>
+                am
+              </div>
+            </div>
+            <div class="col-6 day-celebration">
+              <h1 id="day-celebration">Pancake Day 🥞</h1>
+            </div>
+            <div class="col-3">
+              <img src="media/moon by Luna Smith.png" alt="moon emoji by Luna
+              Smith" class="moon" / >
+              <div class="sunset2">
+                <div class="sunset" id="sunset">20:42</div>
+                pm
+              </div>
             </div>
           </div>
-          <div class="col-6 day-celebration">
-            <h1 id="day-celebration">Pancake Day 🥞</h1>
+          <form class="city-form" id="form">
+            <input
+              type="search"
+              placeholder="Enter your city"
+              autofocus="on"
+              class="inside-form"
+              id="search-city"
+            />
+            <button type="submit" class="inside-form">🔍</button>
+            <button class="my-city" id="my-city">My City</button>
+          </form>
+          <div class="degree-choice">
+            <button class="degree fahrenheit" id="degree-fahrenheit">F</button>
+            <button class="degree celsius" id="degree-celsius">C</button>
           </div>
-          <div class="col-3">
-            <img src="media/moon by Luna Smith.png" alt="moon emoji by Luna
-            Smith" class="moon" / >
-            <div class="sunset2">
-              <div class="sunset" id="sunset">20:42</div>
-              pm
+          <section class="image">
+            <img
+              src="media/night by Luna Smith.jpg"
+              alt="thunder by Luna Smith"
+              class="day-image"
+              id="image"
+            />
+            <div class="row today-weather">
+              <div class="col-3"></div>
+              <div class="col-2" id="today-temperature">18°C</div>
+              <div class="col-7"></div>
             </div>
-          </div>
-        </div>
-        <form class="city-form" id="form">
-          <input
-            type="search"
-            placeholder="Enter your city"
-            autofocus="on"
-            class="inside-form"
-            id="search-city"
-          />
-          <button type="submit" class="inside-form">🔍</button>
-          <button class="my-city" id="my-city">My City</button>
-        </form>
-        <div class="degree-choice">
-          <button class="degree fahrenheit" id="degree-fahrenheit">F</button>
-          <button class="degree celsius" id="degree-celsius">C</button>
-        </div>
-        <section class="image">
-          <img
-            src="media/night by Luna Smith.jpg"
-            alt="thunder by Luna Smith"
-            class="day-image"
-            id="image"
-          />
-          <div class="row today-weather">
-            <div class="col-3"></div>
-            <div class="col-2" id="today-temperature">18°C</div>
-            <div class="col-7"></div>
-          </div>
-          <h2>London</h2>
-        </section>
-        <section class="forecast-table">
-          <div class="row forecast">
-            <div class="col main day today" id="table-button0">
-              <button class="button-day button-today" id="current-day">
-                Today
-              </button>
+            <h2>London</h2>
+          </section>
+          <section class="forecast-table">
+            <div class="row forecast">
+              <div class="col main day today" id="table-button0">
+                <button class="button-day button-today" id="current-day">
+                  Today
+                </button>
+              </div>
+              <div class="col main day" id="table-button1">
+                <button class="button-day button-day1" id="button-day1">
+                  Mon
+                </button>
+              </div>
+              <div class="col main day" id="table-button2">
+                <button class="button-day button-day2" id="button-day2">
+                  Tue
+                </button>
+              </div>
+              <div class="col main day" id="table-button3">
+                <button class="button-day button-day3" id="button-day3">
+                  Wed
+                </button>
+              </div>
+              <div class="col main day" id="table-button4">
+                <button class="button-day button-day4" id="button-day4">
+                  Thu
+                </button>
+              </div>
+              <div class="col main day" id="table-button5">
+                <button class="button-day button-day5" id="button-day5">
+                  Fri
+                </button>
+              </div>
             </div>
-            <div class="col main day" id="table-button1">
-              <button class="button-day button-day1" id="button-day1">
-                Mon
-              </button>
+            <div class="row forecast">
+              <div class="col day today" id="current-hour">10:00</div>
+              <div class="col day" id="current-hour1">10:00</div>
+              <div class="col day" id="current-hour2">10:00</div>
+              <div class="col day" id="current-hour3">10:00</div>
+              <div class="col day" id="current-hour4">10:00</div>
+              <div class="col day" id="current-hour5">10:00</div>
             </div>
-            <div class="col main day" id="table-button2">
-              <button class="button-day button-day2" id="button-day2">
-                Tue
-              </button>
+            <div class="row forecast">
+              <div class="col day today" id="main-emoji">
+                <img src="media/broken clouds by Luna Smith.png" alt="broken
+                clouds emoji by Luna Smith" width="50" / >
+              </div>
+              <div class="col day" id="emoji1">
+                <img src="media/broken clouds by Luna Smith.png" alt="broken
+                clouds emoji by Luna Smith" width="50" / >
+              </div>
+              <div class="col day" id="emoji2">
+                <img src="media/broken clouds by Luna Smith.png" alt="broken
+                clouds emoji by Luna Smith" width="50" / >
+              </div>
+              <div class="col day" id="emoji3">
+                <img src="media/broken clouds by Luna Smith.png" alt="broken
+                clouds emoji by Luna Smith" width="50" / >
+              </div>
+              <div class="col day" id="emoji4">
+                <img src="media/broken clouds by Luna Smith.png" alt="broken
+                clouds emoji by Luna Smith" width="50" / >
+              </div>
+              <div class="col day" id="emoji5">
+                <img src="media/broken clouds by Luna Smith.png" alt="broken
+                clouds emoji by Luna Smith" width="50" / >
+              </div>
             </div>
-            <div class="col main day" id="table-button3">
-              <button class="button-day button-day3" id="button-day3">
-                Wed
-              </button>
+            <div class="row forecast">
+              <div class="col day today" id="today-temperature-table">16°C</div>
+              <div class="col day day-temperature-table" id="next-hour-temp-1">
+                18°C
+              </div>
+              <div class="col day day-temperature-table" id="next-hour-temp-2">
+                18°C
+              </div>
+              <div class="col day day-temperature-table" id="next-hour-temp-3">
+                18°C
+              </div>
+              <div class="col day day-temperature-table" id="next-hour-temp-4">
+                17°C
+              </div>
+              <div class="col day day-temperature-table" id="next-hour-temp-5">
+                14°C
+              </div>
             </div>
-            <div class="col main day" id="table-button4">
-              <button class="button-day button-day4" id="button-day4">
-                Thu
-              </button>
+            <div class="row forecast">
+              <div class="col day today" id="tableSpeedWind0">
+                🍃<span id="today-SpeedWind">16</span> kmph
+              </div>
+              <div class="col day" id="tableSpeedWind1">
+                🍃<span id="SpeedWind1">16</span>
+              </div>
+              <div class="col day" id="tableSpeedWind2">
+                🍃<span id="SpeedWind2">13</span>
+              </div>
+              <div class="col day" id="tableSpeedWind3">
+                🍃<span id="SpeedWind3">14</span>
+              </div>
+              <div class="col day" id="tableSpeedWind4">
+                🍃<span id="SpeedWind4">15</span>
+              </div>
+              <div class="col day" id="tableSpeedWind5">
+                🍃<span id="SpeedWind5">11</span>
+              </div>
             </div>
-            <div class="col main day" id="table-button5">
-              <button class="button-day button-day5" id="button-day5">
-                Fri
-              </button>
+            <div class="row forecast">
+              <div class="col day today" id="tableHumidity0">
+                💧
+                <span id="today-rain">16</span>%
+              </div>
+              <div class="col day" id="tableHumidity1">
+                💧<span id="rain1">16</span>%
+              </div>
+              <div class="col day" id="tableHumidity2">
+                💧<span id="rain2">13</span>%
+              </div>
+              <div class="col day" id="tableHumidity3">
+                💧<span id="rain3">14</span>%
+              </div>
+              <div class="col day" id="tableHumidity4">
+                💧<span id="rain4">15</span>%
+              </div>
+              <div class="col day" id="tableHumidity5">
+                💧<span id="rain5">11</span>%
+              </div>
             </div>
-          </div>
-          <div class="row forecast">
-            <div class="col day today" id="current-hour">10:00</div>
-            <div class="col day" id="current-hour1">10:00</div>
-            <div class="col day" id="current-hour2">10:00</div>
-            <div class="col day" id="current-hour3">10:00</div>
-            <div class="col day" id="current-hour4">10:00</div>
-            <div class="col day" id="current-hour5">10:00</div>
-          </div>
-          <div class="row forecast">
-            <div class="col day today" id="main-emoji">
-              <img src="media/broken clouds by Luna Smith.png" alt="broken
-              clouds emoji by Luna Smith" width="50" / >
-            </div>
-            <div class="col day" id="emoji1">
-              <img src="media/broken clouds by Luna Smith.png" alt="broken
-              clouds emoji by Luna Smith" width="50" / >
-            </div>
-            <div class="col day" id="emoji2">
-              <img src="media/broken clouds by Luna Smith.png" alt="broken
-              clouds emoji by Luna Smith" width="50" / >
-            </div>
-            <div class="col day" id="emoji3">
-              <img src="media/broken clouds by Luna Smith.png" alt="broken
-              clouds emoji by Luna Smith" width="50" / >
-            </div>
-            <div class="col day" id="emoji4">
-              <img src="media/broken clouds by Luna Smith.png" alt="broken
-              clouds emoji by Luna Smith" width="50" / >
-            </div>
-            <div class="col day" id="emoji5">
-              <img src="media/broken clouds by Luna Smith.png" alt="broken
-              clouds emoji by Luna Smith" width="50" / >
-            </div>
-          </div>
-          <div class="row forecast">
-            <div class="col day today" id="today-temperature-table">16°C</div>
-            <div class="col day day-temperature-table" id="next-hour-temp-1">
-              18°C
-            </div>
-            <div class="col day day-temperature-table" id="next-hour-temp-2">
-              18°C
-            </div>
-            <div class="col day day-temperature-table" id="next-hour-temp-3">
-              18°C
-            </div>
-            <div class="col day day-temperature-table" id="next-hour-temp-4">
-              17°C
-            </div>
-            <div class="col day day-temperature-table" id="next-hour-temp-5">
-              14°C
-            </div>
-          </div>
-          <div class="row forecast">
-            <div class="col day today" id="tableSpeedWind0">
-              🍃<span id="today-SpeedWind">16</span> kmph
-            </div>
-            <div class="col day" id="tableSpeedWind1">
-              🍃<span id="SpeedWind1">16</span>
-            </div>
-            <div class="col day" id="tableSpeedWind2">
-              🍃<span id="SpeedWind2">13</span>
-            </div>
-            <div class="col day" id="tableSpeedWind3">
-              🍃<span id="SpeedWind3">14</span>
-            </div>
-            <div class="col day" id="tableSpeedWind4">
-              🍃<span id="SpeedWind4">15</span>
-            </div>
-            <div class="col day" id="tableSpeedWind5">
-              🍃<span id="SpeedWind5">11</span>
-            </div>
-          </div>
-          <div class="row forecast">
-            <div class="col day today" id="tableHumidity0">
-              💧
-              <span id="today-rain">16</span>%
-            </div>
-            <div class="col day" id="tableHumidity1">
-              💧<span id="rain1">16</span>%
-            </div>
-            <div class="col day" id="tableHumidity2">
-              💧<span id="rain2">13</span>%
-            </div>
-            <div class="col day" id="tableHumidity3">
-              💧<span id="rain3">14</span>%
-            </div>
-            <div class="col day" id="tableHumidity4">
-              💧<span id="rain4">15</span>%
-            </div>
-            <div class="col day" id="tableHumidity5">
-              💧<span id="rain5">11</span>%
-            </div>
-          </div>
-          <br />
-
-          <div class="date" id="date">
-            Today is Thursday, 25th of April 2022
-          </div>
-          <div class="row footnote">
-            <div class="col wind">🍃- wind</div>
-            <div class="col humidity">💧- humidity</div>
-          </div>
-          <div class="weather-forecast">Weather Forecast</div>
-          <div class="created-by">
-            The project was coded by
-            <a
-              href="https://www.lunasmithart.com/"
-              target="_blank"
-              alt="Luna Smith art"
-              class="portfolio-link"
-              >Luna Smith</a
-            >
-            and is
-            <a
-              href="https://github.com/Lu-Smith/Weather-app-by-Luna-Smith"
-              target="_blank"
-              alt="my GitHub"
-              class="GitHub"
-              >open-sourced on GitHub</a
-            >
             <br />
-            and
-            <a
-              href="https://celadon-cobbler-675e8d.netlify.app"
-              target="_blank"
-              alt="my Netlify"
-              class="Netlify"
-              >hosted on Netlify</a
-            >
-          </div>
-        </section>
+
+            <div class="date" id="date">
+              Today is Thursday, 25th of April 2022
+            </div>
+            <div class="row footnote">
+              <div class="col wind">🍃- wind</div>
+              <div class="col humidity">💧- humidity</div>
+            </div>
+            <div class="weather-forecast">Weather Forecast</div>
+            <div class="created-by">
+              The project was coded by
+              <a
+                href="https://www.lunasmithart.com/"
+                target="_blank"
+                alt="Luna Smith art"
+                class="portfolio-link"
+                >Luna Smith</a
+              >
+              and is
+              <a
+                href="https://github.com/Lu-Smith/Weather-app-by-Luna-Smith"
+                target="_blank"
+                alt="my GitHub"
+                class="GitHub"
+                >open-sourced on GitHub</a
+              >
+              <br />
+              and
+              <a
+                href="https://celadon-cobbler-675e8d.netlify.app"
+                target="_blank"
+                alt="my Netlify"
+                class="Netlify"
+                >hosted on Netlify</a
+              >
+            </div>
+          </section>
+        </div>
       </div>
     </div>
     <script src="src/weather.js"></script>

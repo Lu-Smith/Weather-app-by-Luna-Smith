@@ -89,16 +89,28 @@ function currentTime() {
   // change image
 
   let imageElement = document.querySelector("#image");
+  let bodyElement = document.querySelector("#night-theme");
+
   if (hour >= 5 && hour < 8) {
     imageElement.setAttribute("src", `media/sunrise by Luna Smith.jpg`);
+    bodyElement.style.background =
+      "linear-gradient(68.6deg, rgb(252, 165, 241) 1.8%, rgb(181, 255, 255) 100.5%)";
   } else if (hour >= 8 && hour < 18) {
     imageElement.setAttribute("src", `media/day by Luna Smith.jpg`);
+    bodyElement.style.background =
+      "linear-gradient(120deg, #e0c3fc 0%, #86E8F3 100%)";
   } else if (hour >= 18 && hour < 21) {
     imageElement.setAttribute("src", `media/sunset by Luna Smith.jpg`);
+    bodyElement.style.background =
+      "linear-gradient(to right, #C33923, #EBB31B)";
   } else if (hour >= 21 && hour < 23) {
     imageElement.setAttribute("src", `media/thunder by Luna Smith.jpg`);
+    bodyElement.style.background =
+      "linear-gradient(95deg, rgb(52, 7, 63) 10%, rgb(15, 1, 29) 100%)";
   } else {
     imageElement.setAttribute("src", `media/night by Luna Smith.jpg`);
+    bodyElement.style.background =
+      "linear-gradient(112.1deg, #090F29 11.4%, #0D1336 70.2%)";
   }
 }
 currentTime();
@@ -268,16 +280,28 @@ function timeSearchCity(response) {
 
   // change image
   let imageElement = document.querySelector("#image");
+  let bodyElement = document.querySelector("#night-theme");
+
   if (hour >= 5 && hour < 8) {
     imageElement.setAttribute("src", `media/sunrise by Luna Smith.jpg`);
+    bodyElement.style.background =
+      "linear-gradient(68.6deg, rgb(252, 165, 241) 1.8%, rgb(181, 255, 255) 100.5%)";
   } else if (hour >= 8 && hour < 18) {
     imageElement.setAttribute("src", `media/day by Luna Smith.jpg`);
+    bodyElement.style.background =
+      "linear-gradient(120deg, #e0c3fc 0%, #86E8F3 100%)";
   } else if (hour >= 18 && hour < 21) {
     imageElement.setAttribute("src", `media/sunset by Luna Smith.jpg`);
+    bodyElement.style.background =
+      "linear-gradient(to right, #C33923, #EBB31B)";
   } else if (hour >= 21 && hour < 23) {
     imageElement.setAttribute("src", `media/thunder by Luna Smith.jpg`);
+    bodyElement.style.background =
+      "linear-gradient(95deg, rgb(52, 7, 63) 10%, rgb(15, 1, 29) 100%)";
   } else {
     imageElement.setAttribute("src", `media/night by Luna Smith.jpg`);
+    bodyElement.style.background =
+      "linear-gradient(112.1deg, #090F29 11.4%, #0D1336 70.2%)";
   }
 }
 function speedWindSearchCity(response) {
