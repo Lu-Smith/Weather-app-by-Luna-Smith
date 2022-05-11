@@ -12,7 +12,15 @@ h2 {
   right: 60px;
   text-shadow: 5px 5px 20px rgba(14, 14, 14);
 }
-
+.night-theme {
+  background: linear-gradient(95deg, rgb(52, 7, 63) 10%, rgb(15, 1, 29) 100%);
+}
+.weather-app {
+  background: rgba(218, 164, 207, 0.626);
+  box-shadow: 3px 6px 10px 8px rgba(0, 0, 0, 0.5);
+  max-width: 600px;
+  border-radius: 10px;
+}
 .row {
   text-align: center;
   margin: 0;
@@ -41,24 +49,12 @@ h2 {
   position: relative;
   bottom: 18px;
 }
-
 .sunrise1 {
   color: #c62874;
 }
-
 .sunset2 {
   color: #2e486b;
 }
-.night {
-  background: linear-gradient(95deg, rgb(52, 7, 63) 10%, rgb(15, 1, 29) 100%);
-}
-.weather-app {
-  background: rgba(218, 164, 207, 0.626);
-  box-shadow: 3px 6px 10px 8px rgba(0, 0, 0, 0.5);
-  max-width: 600px;
-  border-radius: 10px;
-}
-
 .city-form {
   text-align: center;
   display: block;
@@ -71,7 +67,6 @@ h2 {
   box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
   padding: 5px 13px;
 }
-
 .my-city {
   background: rgb(198, 40, 116);
   color: #fff;
@@ -125,7 +120,6 @@ h2 {
 .forecast {
   background: #f582a7;
 }
-
 .main {
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
 }
@@ -169,7 +163,6 @@ h2 {
 .highlightDay {
   color: white;
 }
-
 .footnote {
   margin-top: 30px;
 }
@@ -181,7 +174,6 @@ h2 {
   color: #711a75;
   text-shadow: 3px 3px 5px rgba(250, 247, 247, 0.5);
 }
-
 .created-by {
   text-align: center;
   font-family: "Josefin Sans", sans-serif;
@@ -189,14 +181,12 @@ h2 {
   padding: 10px;
   color: #711a75;
 }
-
 .portfolio-link,
 .GitHub,
 .Netlify {
   color: #0f030f;
   text-decoration: none;
 }
-
 .portfolio-link:hover,
 .GitHub:hover,
 .Netlify:hover {
