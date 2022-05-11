@@ -157,26 +157,23 @@ function currentSearchTemperature(response) {
   celsiusTemperature.innerHTML =
     celsiusTemperatureTable.innerHTML = `${temperature}°C`;
 
+  let toFTempConvert = (temperature * 9) / 5 + 32;
+  let fTempConvert = Math.round(toFTempConvert);
+  let toCTempConvert = ((fTempConvert - 32) * 5) / 9;
+  let cTempConvert = Math.round(toCTempConvert);
+
   function currentSearchTemperatureFahrenheit() {
     let searchCurrentDegreeFahrenheit =
       document.querySelector("#today-temperature");
     let searchCurrentDegreeFahrenheitTable = document.querySelector(
       "#today-temperature-table"
     );
-
     searchCurrentDegreeFahrenheitTable.innerHTML =
       searchCurrentDegreeFahrenheit.innerHTML = `${fTempConvert}°F`;
-  }
-  let toFTempConvert = (temperature * 9) / 5 + 32;
-  let fTempConvert = Math.round(toFTempConvert);
-  let toCTempConvert = ((fTempConvert - 32) * 5) / 9;
-  let cTempConvert = Math.round(toCTempConvert);
-  let searchButtonDegreeFahrenheit = document.querySelector(".fahrenheit");
-  searchButtonDegreeFahrenheit.addEventListener(
-    "click",
-    currentSearchTemperatureFahrenheit
-  );
 
+    searchButtonDegreeCelsius.classList.remove("celsius");
+    searchButtonDegreeFahrenheit.classList.add("celsius");
+  }
   function currentSearchTemperatureCelsius() {
     let searchCurrentDegreeCelsius =
       document.querySelector("#today-temperature");
@@ -186,8 +183,17 @@ function currentSearchTemperature(response) {
 
     searchCurrentDegreeCelsiusTable.innerHTML =
       searchCurrentDegreeCelsius.innerHTML = `${cTempConvert}°C`;
+
+    searchButtonDegreeCelsius.classList.add("celsius");
+    searchButtonDegreeFahrenheit.classList.remove("celsius");
   }
-  let searchButtonDegreeCelsius = document.querySelector(".celsius");
+  let searchButtonDegreeFahrenheit =
+    document.querySelector("#degree-fahrenheit");
+  searchButtonDegreeFahrenheit.addEventListener(
+    "click",
+    currentSearchTemperatureFahrenheit
+  );
+  let searchButtonDegreeCelsius = document.querySelector("#degree-celsius");
   searchButtonDegreeCelsius.addEventListener(
     "click",
     currentSearchTemperatureCelsius
@@ -722,8 +728,10 @@ function nextHourSearchWeather(response) {
 
     let currentNextFTemperature5 = document.querySelector("#next-hour-temp-5");
     currentNextFTemperature5.innerHTML = `${fTempConvert5}°F`;
+    currentDegreeCelsius.classList.remove("celsius");
+    currentDegreeFahrenheit.classList.add("celsius");
   }
-  let currentDegreeFahrenheit = document.querySelector(".fahrenheit");
+  let currentDegreeFahrenheit = document.querySelector("#degree-fahrenheit");
   currentDegreeFahrenheit.addEventListener(
     "click",
     currentNextTemperatureFahrenheit
@@ -744,8 +752,11 @@ function nextHourSearchWeather(response) {
 
     let currentNextCTemperature5 = document.querySelector("#next-hour-temp-5");
     currentNextCTemperature5.innerHTML = `${cTempConvert5}°C`;
+
+    currentDegreeCelsius.classList.add("celsius");
+    currentDegreeFahrenheit.classList.remove("celsius");
   }
-  let currentDegreeCelsius = document.querySelector(".celsius");
+  let currentDegreeCelsius = document.querySelector("#degree-celsius");
   currentDegreeCelsius.addEventListener("click", currentNextTemperatureCelsius);
 }
 

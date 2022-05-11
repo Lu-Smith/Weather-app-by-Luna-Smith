@@ -92,6 +92,9 @@ h2 {
   box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
   transition: all 200ms ease-in-out;
 }
+.celsius {
+  background: #f05687;
+}
 .fahrenheit:hover,
 .celsius:hover {
   background: #f05687;
