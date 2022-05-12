@@ -819,19 +819,7 @@ function showCurrentPosition(position) {
   axios.get(apiUrl).then(displayCity);
   axios.get(apiUrlHourly).then(nextHourSearchWeather);
 
-  let nextDay0Button = document.querySelector("#current-day");
-  let nextDay1Button = document.querySelector("#button-day1");
-  let nextDay2Button = document.querySelector("#button-day2");
-  let nextDay3Button = document.querySelector("#button-day3");
-  let nextDay4Button = document.querySelector("#button-day4");
-  let nextDay5Button = document.querySelector("#button-day5");
-
-  nextDay0Button.addEventListener("click", showWeatherForecastNextDay0);
-  nextDay1Button.addEventListener("click", showWeatherForecastNextDay1);
-  nextDay2Button.addEventListener("click", showWeatherForecastNextDay2);
-  nextDay3Button.addEventListener("click", showWeatherForecastNextDay3);
-  nextDay4Button.addEventListener("click", showWeatherForecastNextDay4);
-  nextDay5Button.addEventListener("click", showWeatherForecastNextDay5);
+  showWeatherForecastTable();
 }
 function showMyCity(event) {
   event.preventDefault();
@@ -859,6 +847,20 @@ function initialCity(city) {
   axios.get(apiUrl).then(displayCity);
   axios.get(apiUrlHourly).then(nextHourSearchWeather);
 
+  showWeatherForecastTable();
+}
+
+initialCity("New York");
+
+// next day weather look
+
+function showWeatherForecastTable() {
+  let button0 = document.querySelector("#column0");
+  let button1 = document.querySelector("#column1");
+  let button2 = document.querySelector("#column2");
+  let button3 = document.querySelector("#column3");
+  let button4 = document.querySelector("#column4");
+  let button5 = document.querySelector("#column5");
   let nextDay0Button = document.querySelector("#current-day");
   let nextDay1Button = document.querySelector("#button-day1");
   let nextDay2Button = document.querySelector("#button-day2");
@@ -872,320 +874,93 @@ function initialCity(city) {
   nextDay3Button.addEventListener("click", showWeatherForecastNextDay3);
   nextDay4Button.addEventListener("click", showWeatherForecastNextDay4);
   nextDay5Button.addEventListener("click", showWeatherForecastNextDay5);
-}
 
-initialCity("New York");
+  function showWeatherForecastNextDay0(event) {
+    button0.classList.add("today");
+    button1.classList.remove("today");
+    button2.classList.remove("today");
+    button3.classList.remove("today");
+    button4.classList.remove("today");
+    button5.classList.remove("today");
+    nextDay0Button.classList.add("button-today");
+    nextDay1Button.classList.remove("button-today");
+    nextDay2Button.classList.remove("button-today");
+    nextDay3Button.classList.remove("button-today");
+    nextDay4Button.classList.remove("button-today");
+    nextDay5Button.classList.remove("button-today");
+  }
+  function showWeatherForecastNextDay1(event) {
+    button0.classList.remove("today");
+    button1.classList.add("today");
+    button2.classList.remove("today");
+    button3.classList.remove("today");
+    button4.classList.remove("today");
+    button5.classList.remove("today");
+    nextDay0Button.classList.remove("button-today");
+    nextDay1Button.classList.add("button-today");
+    nextDay2Button.classList.remove("button-today");
+    nextDay3Button.classList.remove("button-today");
+    nextDay4Button.classList.remove("button-today");
+    nextDay5Button.classList.remove("button-today");
+  }
 
-// next day weather buttons
+  function showWeatherForecastNextDay2(event) {
+    button0.classList.remove("today");
+    button1.classList.remove("today");
+    button2.classList.add("today");
+    button3.classList.remove("today");
+    button4.classList.remove("today");
+    button5.classList.remove("today");
+    nextDay0Button.classList.remove("button-today");
+    nextDay1Button.classList.remove("button-today");
+    nextDay2Button.classList.add("button-today");
+    nextDay3Button.classList.remove("button-today");
+    nextDay4Button.classList.remove("button-today");
+    nextDay5Button.classList.remove("button-today");
+  }
 
-let button0 = document.querySelector("#current-day");
-let button1 = document.querySelector("#button-day1");
-let button2 = document.querySelector("#button-day2");
-let button3 = document.querySelector("#button-day3");
-let button4 = document.querySelector("#button-day4");
-let button5 = document.querySelector("#button-day5");
-let tableDay0 = document.querySelector("#table-button0");
-let tableDay1 = document.querySelector("#table-button1");
-let tableDay2 = document.querySelector("#table-button2");
-let tableDay3 = document.querySelector("#table-button3");
-let tableDay4 = document.querySelector("#table-button4");
-let tableDay5 = document.querySelector("#table-button5");
-let tableDayHour0 = document.querySelector("#current-hour");
-let tableDayHour1 = document.querySelector("#current-hour1");
-let tableDayHour2 = document.querySelector("#current-hour2");
-let tableDayHour3 = document.querySelector("#current-hour3");
-let tableDayHour4 = document.querySelector("#current-hour4");
-let tableDayHour5 = document.querySelector("#current-hour5");
-let tableDayEmoji0 = document.querySelector("#main-emoji");
-let tableDayEmoji1 = document.querySelector("#emoji1");
-let tableDayEmoji2 = document.querySelector("#emoji2");
-let tableDayEmoji3 = document.querySelector("#emoji3");
-let tableDayEmoji4 = document.querySelector("#emoji4");
-let tableDayEmoji5 = document.querySelector("#emoji5");
-let tableDayTemp0 = document.querySelector("#today-temperature-table");
-let tableDayTemp1 = document.querySelector("#next-hour-temp-1");
-let tableDayTemp2 = document.querySelector("#next-hour-temp-2");
-let tableDayTemp3 = document.querySelector("#next-hour-temp-3");
-let tableDayTemp4 = document.querySelector("#next-hour-temp-4");
-let tableDayTemp5 = document.querySelector("#next-hour-temp-5");
-let tableDayWind0 = document.querySelector("#tableSpeedWind0");
-let tableDayWind1 = document.querySelector("#tableSpeedWind1");
-let tableDayWind2 = document.querySelector("#tableSpeedWind2");
-let tableDayWind3 = document.querySelector("#tableSpeedWind3");
-let tableDayWind4 = document.querySelector("#tableSpeedWind4");
-let tableDayWind5 = document.querySelector("#tableSpeedWind5");
-let tableDayHumidity0 = document.querySelector("#tableHumidity0");
-let tableDayHumidity1 = document.querySelector("#tableHumidity1");
-let tableDayHumidity2 = document.querySelector("#tableHumidity2");
-let tableDayHumidity3 = document.querySelector("#tableHumidity3");
-let tableDayHumidity4 = document.querySelector("#tableHumidity4");
-let tableDayHumidity5 = document.querySelector("#tableHumidity5");
+  function showWeatherForecastNextDay3(event) {
+    button0.classList.remove("today");
+    button1.classList.remove("today");
+    button2.classList.remove("today");
+    button3.classList.add("today");
+    button4.classList.remove("today");
+    button5.classList.remove("today");
+    nextDay0Button.classList.remove("button-today");
+    nextDay1Button.classList.remove("button-today");
+    nextDay2Button.classList.remove("button-today");
+    nextDay3Button.classList.add("button-today");
+    nextDay4Button.classList.remove("button-today");
+    nextDay5Button.classList.remove("button-today");
+  }
 
-function showWeatherForecastNextDay0(event) {
-  button0.classList.add("button-today");
-  button1.classList.remove("button-today");
-  button2.classList.remove("button-today");
-  button3.classList.remove("button-today");
-  button4.classList.remove("button-today");
-  button5.classList.remove("button-today");
-  tableDay0.classList.add("today");
-  tableDay1.classList.remove("today");
-  tableDay2.classList.remove("today");
-  tableDay3.classList.remove("today");
-  tableDay4.classList.remove("today");
-  tableDay5.classList.remove("today");
-  tableDayHour0.classList.add("today");
-  tableDayHour1.classList.remove("today");
-  tableDayHour2.classList.remove("today");
-  tableDayHour3.classList.remove("today");
-  tableDayHour4.classList.remove("today");
-  tableDayHour5.classList.remove("today");
-  tableDayEmoji0.classList.add("today");
-  tableDayEmoji1.classList.remove("today");
-  tableDayEmoji2.classList.remove("today");
-  tableDayEmoji3.classList.remove("today");
-  tableDayEmoji4.classList.remove("today");
-  tableDayEmoji5.classList.remove("today");
-  tableDayTemp0.classList.add("today");
-  tableDayTemp1.classList.remove("today");
-  tableDayTemp2.classList.remove("today");
-  tableDayTemp3.classList.remove("today");
-  tableDayTemp4.classList.remove("today");
-  tableDayTemp5.classList.remove("today");
-  tableDayWind0.classList.add("today");
-  tableDayWind1.classList.remove("today");
-  tableDayWind2.classList.remove("today");
-  tableDayWind3.classList.remove("today");
-  tableDayWind4.classList.remove("today");
-  tableDayWind5.classList.remove("today");
-  tableDayHumidity0.classList.add("today");
-  tableDayHumidity1.classList.remove("today");
-  tableDayHumidity2.classList.remove("today");
-  tableDayHumidity3.classList.remove("today");
-  tableDayHumidity4.classList.remove("today");
-  tableDayHumidity5.classList.remove("today");
-}
-function showWeatherForecastNextDay1(event) {
-  button0.classList.remove("button-today");
-  button1.classList.add("button-today");
-  button2.classList.remove("button-today");
-  button3.classList.remove("button-today");
-  button4.classList.remove("button-today");
-  button5.classList.remove("button-today");
-  tableDay0.classList.remove("today");
-  tableDay1.classList.add("today");
-  tableDay2.classList.remove("today");
-  tableDay3.classList.remove("today");
-  tableDay4.classList.remove("today");
-  tableDay5.classList.remove("today");
-  tableDayHour0.classList.remove("today");
-  tableDayHour1.classList.add("today");
-  tableDayHour2.classList.remove("today");
-  tableDayHour3.classList.remove("today");
-  tableDayHour4.classList.remove("today");
-  tableDayHour5.classList.remove("today");
-  tableDayEmoji0.classList.remove("today");
-  tableDayEmoji1.classList.add("today");
-  tableDayEmoji2.classList.remove("today");
-  tableDayEmoji3.classList.remove("today");
-  tableDayEmoji4.classList.remove("today");
-  tableDayEmoji5.classList.remove("today");
-  tableDayTemp0.classList.remove("today");
-  tableDayTemp1.classList.add("today");
-  tableDayTemp2.classList.remove("today");
-  tableDayTemp3.classList.remove("today");
-  tableDayTemp4.classList.remove("today");
-  tableDayTemp5.classList.remove("today");
-  tableDayWind0.classList.remove("today");
-  tableDayWind1.classList.add("today");
-  tableDayWind2.classList.remove("today");
-  tableDayWind3.classList.remove("today");
-  tableDayWind4.classList.remove("today");
-  tableDayWind5.classList.remove("today");
-  tableDayHumidity0.classList.remove("today");
-  tableDayHumidity1.classList.add("today");
-  tableDayHumidity2.classList.remove("today");
-  tableDayHumidity3.classList.remove("today");
-  tableDayHumidity4.classList.remove("today");
-  tableDayHumidity5.classList.remove("today");
-}
+  function showWeatherForecastNextDay4(event) {
+    button0.classList.remove("today");
+    button1.classList.remove("today");
+    button2.classList.remove("today");
+    button3.classList.remove("today");
+    button4.classList.add("today");
+    button5.classList.remove("today");
+    nextDay0Button.classList.remove("button-today");
+    nextDay1Button.classList.remove("button-today");
+    nextDay2Button.classList.remove("button-today");
+    nextDay3Button.classList.remove("button-today");
+    nextDay4Button.classList.add("button-today");
+    nextDay5Button.classList.remove("button-today");
+  }
 
-function showWeatherForecastNextDay2(event) {
-  button0.classList.remove("button-today");
-  button1.classList.remove("button-today");
-  button2.classList.add("button-today");
-  button3.classList.remove("button-today");
-  button4.classList.remove("button-today");
-  button5.classList.remove("button-today");
-  tableDay0.classList.remove("today");
-  tableDay1.classList.remove("today");
-  tableDay2.classList.add("today");
-  tableDay3.classList.remove("today");
-  tableDay4.classList.remove("today");
-  tableDay5.classList.remove("today");
-  tableDayHour0.classList.remove("today");
-  tableDayHour1.classList.remove("today");
-  tableDayHour2.classList.add("today");
-  tableDayHour3.classList.remove("today");
-  tableDayHour4.classList.remove("today");
-  tableDayHour5.classList.remove("today");
-  tableDayEmoji0.classList.remove("today");
-  tableDayEmoji1.classList.remove("today");
-  tableDayEmoji2.classList.add("today");
-  tableDayEmoji3.classList.remove("today");
-  tableDayEmoji4.classList.remove("today");
-  tableDayEmoji5.classList.remove("today");
-  tableDayTemp0.classList.remove("today");
-  tableDayTemp1.classList.remove("today");
-  tableDayTemp2.classList.add("today");
-  tableDayTemp3.classList.remove("today");
-  tableDayTemp4.classList.remove("today");
-  tableDayTemp5.classList.remove("today");
-  tableDayWind0.classList.remove("today");
-  tableDayWind1.classList.remove("today");
-  tableDayWind2.classList.add("today");
-  tableDayWind3.classList.remove("today");
-  tableDayWind4.classList.remove("today");
-  tableDayWind5.classList.remove("today");
-  tableDayHumidity0.classList.remove("today");
-  tableDayHumidity1.classList.remove("today");
-  tableDayHumidity2.classList.add("today");
-  tableDayHumidity3.classList.remove("today");
-  tableDayHumidity4.classList.remove("today");
-  tableDayHumidity5.classList.remove("today");
-}
-
-function showWeatherForecastNextDay3(event) {
-  button0.classList.remove("button-today");
-  button1.classList.remove("button-today");
-  button2.classList.remove("button-today");
-  button3.classList.add("button-today");
-  button4.classList.remove("button-today");
-  button5.classList.remove("button-today");
-  tableDay0.classList.remove("today");
-  tableDay1.classList.remove("today");
-  tableDay2.classList.remove("today");
-  tableDay3.classList.add("today");
-  tableDay4.classList.remove("today");
-  tableDay5.classList.remove("today");
-  tableDayHour0.classList.remove("today");
-  tableDayHour1.classList.remove("today");
-  tableDayHour2.classList.remove("today");
-  tableDayHour3.classList.add("today");
-  tableDayHour4.classList.remove("today");
-  tableDayHour5.classList.remove("today");
-  tableDayEmoji0.classList.remove("today");
-  tableDayEmoji1.classList.remove("today");
-  tableDayEmoji2.classList.remove("today");
-  tableDayEmoji3.classList.add("today");
-  tableDayEmoji4.classList.remove("today");
-  tableDayEmoji5.classList.remove("today");
-  tableDayTemp0.classList.remove("today");
-  tableDayTemp1.classList.remove("today");
-  tableDayTemp2.classList.remove("today");
-  tableDayTemp3.classList.add("today");
-  tableDayTemp4.classList.remove("today");
-  tableDayTemp5.classList.remove("today");
-  tableDayWind0.classList.remove("today");
-  tableDayWind1.classList.remove("today");
-  tableDayWind2.classList.remove("today");
-  tableDayWind3.classList.add("today");
-  tableDayWind4.classList.remove("today");
-  tableDayWind5.classList.remove("today");
-  tableDayHumidity0.classList.remove("today");
-  tableDayHumidity1.classList.remove("today");
-  tableDayHumidity2.classList.remove("today");
-  tableDayHumidity3.classList.add("today");
-  tableDayHumidity4.classList.remove("today");
-  tableDayHumidity5.classList.remove("today");
-}
-
-function showWeatherForecastNextDay4(event) {
-  button0.classList.remove("button-today");
-  button1.classList.remove("button-today");
-  button2.classList.remove("button-today");
-  button3.classList.remove("button-today");
-  button4.classList.add("button-today");
-  button5.classList.remove("button-today");
-  tableDay0.classList.remove("today");
-  tableDay1.classList.remove("today");
-  tableDay2.classList.remove("today");
-  tableDay3.classList.remove("today");
-  tableDay4.classList.add("today");
-  tableDay5.classList.remove("today");
-  tableDayHour0.classList.remove("today");
-  tableDayHour1.classList.remove("today");
-  tableDayHour2.classList.remove("today");
-  tableDayHour3.classList.remove("today");
-  tableDayHour4.classList.add("today");
-  tableDayHour5.classList.remove("today");
-  tableDayEmoji0.classList.remove("today");
-  tableDayEmoji1.classList.remove("today");
-  tableDayEmoji2.classList.remove("today");
-  tableDayEmoji3.classList.remove("today");
-  tableDayEmoji4.classList.add("today");
-  tableDayEmoji5.classList.remove("today");
-  tableDayTemp0.classList.remove("today");
-  tableDayTemp1.classList.remove("today");
-  tableDayTemp2.classList.remove("today");
-  tableDayTemp3.classList.remove("today");
-  tableDayTemp4.classList.add("today");
-  tableDayTemp5.classList.remove("today");
-  tableDayWind0.classList.remove("today");
-  tableDayWind1.classList.remove("today");
-  tableDayWind2.classList.remove("today");
-  tableDayWind3.classList.remove("today");
-  tableDayWind4.classList.add("today");
-  tableDayWind5.classList.remove("today");
-  tableDayHumidity0.classList.remove("today");
-  tableDayHumidity1.classList.remove("today");
-  tableDayHumidity2.classList.remove("today");
-  tableDayHumidity3.classList.remove("today");
-  tableDayHumidity4.classList.add("today");
-  tableDayHumidity5.classList.remove("today");
-}
-
-function showWeatherForecastNextDay5(event) {
-  button0.classList.remove("button-today");
-  button1.classList.remove("button-today");
-  button2.classList.remove("button-today");
-  button3.classList.remove("button-today");
-  button4.classList.remove("button-today");
-  button5.classList.add("button-today");
-  tableDay0.classList.remove("today");
-  tableDay1.classList.remove("today");
-  tableDay2.classList.remove("today");
-  tableDay3.classList.remove("today");
-  tableDay4.classList.remove("today");
-  tableDay5.classList.add("today");
-  tableDayHour0.classList.remove("today");
-  tableDayHour1.classList.remove("today");
-  tableDayHour2.classList.remove("today");
-  tableDayHour3.classList.remove("today");
-  tableDayHour4.classList.remove("today");
-  tableDayHour5.classList.add("today");
-  tableDayEmoji0.classList.remove("today");
-  tableDayEmoji1.classList.remove("today");
-  tableDayEmoji2.classList.remove("today");
-  tableDayEmoji3.classList.remove("today");
-  tableDayEmoji4.classList.remove("today");
-  tableDayEmoji5.classList.add("today");
-  tableDayTemp0.classList.remove("today");
-  tableDayTemp1.classList.remove("today");
-  tableDayTemp2.classList.remove("today");
-  tableDayTemp3.classList.remove("today");
-  tableDayTemp4.classList.remove("today");
-  tableDayTemp5.classList.add("today");
-  tableDayWind0.classList.remove("today");
-  tableDayWind1.classList.remove("today");
-  tableDayWind2.classList.remove("today");
-  tableDayWind3.classList.remove("today");
-  tableDayWind4.classList.remove("today");
-  tableDayWind5.classList.add("today");
-  tableDayHumidity0.classList.remove("today");
-  tableDayHumidity1.classList.remove("today");
-  tableDayHumidity2.classList.remove("today");
-  tableDayHumidity3.classList.remove("today");
-  tableDayHumidity4.classList.remove("today");
-  tableDayHumidity5.classList.add("today");
+  function showWeatherForecastNextDay5(event) {
+    button0.classList.remove("today");
+    button1.classList.remove("today");
+    button2.classList.remove("today");
+    button3.classList.remove("today");
+    button4.classList.remove("today");
+    button5.classList.add("today");
+    nextDay0Button.classList.remove("button-today");
+    nextDay1Button.classList.remove("button-today");
+    nextDay2Button.classList.remove("button-today");
+    nextDay3Button.classList.remove("button-today");
+    nextDay4Button.classList.remove("button-today");
+    nextDay5Button.classList.add("button-today");
+  }
 }
