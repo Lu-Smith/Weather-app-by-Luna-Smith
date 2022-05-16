@@ -45,209 +45,104 @@
               <div class="sunset2 sunset" id="sunset">20:42</div>
             </div>
           </div>
-          <form class="city-form" id="form">
-            <input
-              type="search"
-              placeholder="Enter your city"
-              autofocus="on"
-              class="inside-form"
-              id="search-city"
-            />
-            <button type="submit" class="inside-form">🔍</button>
-            <button class="my-city" id="my-city">My City</button>
-          </form>
-          <div class="degree-choice">
-            <button class="degree fahrenheit" id="degree-fahrenheit">F</button>
-            <button class="degree celsius" id="degree-celsius">C</button>
-          </div>
-          <section class="image">
-            <img
-              src="media/night by Luna Smith.jpg"
-              alt="thunder by Luna Smith"
-              class="day-image"
-              id="image"
-            />
-            <div class="row today-weather">
-              <div class="col-3"></div>
-              <div class="col-2" id="today-temperature">18°C</div>
-              <div class="col-7"></div>
+          <section class="main-content">
+            <form class="city-form" id="form">
+              <input
+                type="search"
+                placeholder="Enter your city"
+                autofocus="on"
+                class="inside-form"
+                id="search-city"
+              />
+              <button type="submit" class="inside-form">🔍</button>
+              <button class="my-city" id="my-city">My City</button>
+            </form>
+            <div class="degree-choice">
+              <button class="degree fahrenheit" id="degree-fahrenheit">
+                F
+              </button>
+              <button class="degree celsius" id="degree-celsius">C</button>
             </div>
-            <h2>London</h2>
-          </section>
+            <section class="image">
+              <img
+                src="media/night by Luna Smith.jpg"
+                alt="thunder by Luna Smith"
+                class="day-image"
+                id="image"
+              />
+              <div class="row today-weather">
+                <div class="col-3"></div>
+                <div class="col-2" id="today-temperature">18°C</div>
+                <div class="col-7"></div>
+              </div>
+              <h2>London</h2>
+            </section>
 
-          <section class="forecast-table">
-            <div class="row forecast">
-              <div class="col-2 day today" id="column0">
-                <div class="main" id="table-button0">
-                  <button class="button-day button-today" id="current-day">
-                    Today
-                  </button>
+            <section class="forecast-table">
+              <div class="row forecast" id="row-forecast">
+                <div class="col-3 day today" id="column0">
+                  <div class="main" id="table-button0">
+                    <button class="button-day button-today" id="current-day">
+                      Today
+                    </button>
+                  </div>
+                  <div class="table-details">
+                    <div id="current-hour">10:00</div>
+                    <div id="main-emoji">
+                      <img src="media/broken clouds by Luna Smith.png"
+                      alt="broken clouds emoji by Luna Smith" width="50" / >
+                    </div>
+                    <div id="today-temperature-table">16°C</div>
+                    <div id="tableSpeedWind0">
+                      🍃<span id="today-SpeedWind">16</span>
+                    </div>
+                    <div id="tableHumidity0">
+                      💧
+                      <span id="today-rain">16</span>%
+                    </div>
+                  </div>
                 </div>
-                <div class="table-details">
-                  <div id="current-hour">10:00</div>
-                  <div id="main-emoji">
-                    <img src="media/broken clouds by Luna Smith.png" alt="broken
-                    clouds emoji by Luna Smith" width="50" / >
-                  </div>
-                  <div id="today-temperature-table">16°C</div>
-                  <div id="tableSpeedWind0">
-                    🍃<span id="today-SpeedWind">16</span>
-                  </div>
-                  <div id="tableHumidity0">
-                    💧
-                    <span id="today-rain">16</span>%
-                  </div>
-                </div>
+                <div class="col day" id="row-forecast1"></div>
               </div>
 
-              <div class="col-2 day" id="column1">
-                <div class="main" id="table-button1">
-                  <button class="button-day button-day1" id="button-day1">
-                    Mon
-                  </button>
-                </div>
-                <div class="table-details">
-                  <div id="current-hour1">10:00</div>
-                  <div id="emoji1">
-                    <img src="media/broken clouds by Luna Smith.png" alt="broken
-                    clouds emoji by Luna Smith" width="50" / >
-                  </div>
-                  <div class="day-temperature-table" id="next-hour-temp-1">
-                    18°C
-                  </div>
-                  <div id="tableSpeedWind1">
-                    🍃<span id="SpeedWind1">16</span>
-                  </div>
-                  <div id="tableHumidity1">💧<span id="rain1">16</span>%</div>
-                </div>
-              </div>
-
-              <div class="col-2 day" id="column2">
-                <div class="main" id="table-button2">
-                  <button class="button-day button-day2" id="button-day2">
-                    Tue
-                  </button>
-                </div>
-                <div class="table-details">
-                  <div id="current-hour2">10:00</div>
-                  <div id="emoji2">
-                    <img src="media/broken clouds by Luna Smith.png" alt="broken
-                    clouds emoji by Luna Smith" width="50" / >
-                  </div>
-                  <div class="day-temperature-table" id="next-hour-temp-2">
-                    18°C
-                  </div>
-                  <div id="tableSpeedWind2">
-                    🍃<span id="SpeedWind2">13</span>
-                  </div>
-                  <div id="tableHumidity2">💧<span id="rain2">13</span>%</div>
-                </div>
-              </div>
-
-              <div class="col-2 day" id="column3">
-                <div class="main" id="table-button3">
-                  <button class="button-day button-day3" id="button-day3">
-                    Wed
-                  </button>
-                </div>
-                <div class="table-details">
-                  <div id="current-hour3">10:00</div>
-                  <div id="emoji3">
-                    <img src="media/broken clouds by Luna Smith.png" alt="broken
-                    clouds emoji by Luna Smith" width="50" / >
-                  </div>
-                  <div class="day-temperature-table" id="next-hour-temp-3">
-                    18°C
-                  </div>
-                  <div id="tableSpeedWind3">
-                    🍃<span id="SpeedWind3">14</span>
-                  </div>
-                  <div id="tableHumidity3">💧<span id="rain3">14</span>%</div>
-                </div>
-              </div>
-
-              <div class="col-2 day" id="column4">
-                <div class="main" id="table-button4">
-                  <button class="button-day button-day4" id="button-day4">
-                    Thu
-                  </button>
-                </div>
-                <div class="table-details">
-                  <div id="current-hour4">10:00</div>
-                  <div id="emoji4">
-                    <img src="media/broken clouds by Luna Smith.png" alt="broken
-                    clouds emoji by Luna Smith" width="50" / >
-                  </div>
-                  <div class="day-temperature-table" id="next-hour-temp-4">
-                    17°C
-                  </div>
-                  <div id="tableSpeedWind4">
-                    🍃<span id="SpeedWind4">15</span>
-                  </div>
-                  <div id="tableHumidity4">💧<span id="rain4">15</span>%</div>
-                </div>
-              </div>
-
-              <div class="col-2 day" id="column5">
-                <div class="main" id="table-button5">
-                  <button class="button-day button-day5" id="button-day5">
-                    Fri
-                  </button>
-                </div>
-                <div class="table-details">
-                  <div id="current-hour5">10:00</div>
-                  <div id="emoji5">
-                    <img src="media/broken clouds by Luna Smith.png" alt="broken
-                    clouds emoji by Luna Smith" width="50" / >
-                  </div>
-                  <div class="day-temperature-table" id="next-hour-temp-5">
-                    14°C
-                  </div>
-                  <div id="tableSpeedWind5">
-                    🍃<span id="SpeedWind5">11</span>
-                  </div>
-                  <div id="tableHumidity5">💧<span id="rain5">11</span>%</div>
-                </div>
-              </div>
-            </div>
-
-            <br />
-
-            <div class="date" id="date">
-              Today is Thursday, 25th of April 2022
-            </div>
-            <div class="row footnote">
-              <div class="col wind">🍃- wind [kmph]</div>
-              <div class="col humidity">💧- humidity</div>
-            </div>
-            <div class="weather-forecast">Weather Forecast</div>
-            <div class="created-by">
-              The project was coded by
-              <a
-                href="https://www.lunasmithart.com/"
-                target="_blank"
-                alt="Luna Smith art"
-                class="portfolio-link"
-                >Luna Smith</a
-              >
-              and is
-              <a
-                href="https://github.com/Lu-Smith/Weather-app-by-Luna-Smith"
-                target="_blank"
-                alt="my GitHub"
-                class="GitHub"
-                >open-sourced on GitHub</a
-              >
               <br />
-              and
-              <a
-                href="https://celadon-cobbler-675e8d.netlify.app"
-                target="_blank"
-                alt="my Netlify"
-                class="Netlify"
-                >hosted on Netlify</a
-              >
-            </div>
+
+              <div class="date" id="date">
+                Today is Thursday, 25th of April 2022
+              </div>
+              <div class="row footnote">
+                <div class="col wind">🍃- wind [kmph]</div>
+                <div class="col humidity">💧- humidity</div>
+              </div>
+              <div class="weather-forecast">Weather Forecast</div>
+              <div class="created-by">
+                The project was coded by
+                <a
+                  href="https://www.lunasmithart.com/"
+                  target="_blank"
+                  alt="Luna Smith art"
+                  class="portfolio-link"
+                  >Luna Smith</a
+                >
+                and is
+                <a
+                  href="https://github.com/Lu-Smith/Weather-app-by-Luna-Smith"
+                  target="_blank"
+                  alt="my GitHub"
+                  class="GitHub"
+                  >open-sourced on GitHub</a
+                >
+                <br />
+                and
+                <a
+                  href="https://celadon-cobbler-675e8d.netlify.app"
+                  target="_blank"
+                  alt="my Netlify"
+                  class="Netlify"
+                  >hosted on Netlify</a
+                >
+              </div>
+            </section>
           </section>
         </div>
       </div>
