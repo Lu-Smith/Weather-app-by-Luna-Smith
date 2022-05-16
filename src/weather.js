@@ -115,49 +115,6 @@ function currentTime() {
 }
 currentTime();
 
-function nextDay() {
-  let buttonNextDay = [
-    "#button-day1",
-    "#button-day2",
-    "#button-day3",
-    "#button-day4",
-    "#button-day5",
-  ];
-  let now = new Date();
-  let nextDays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-  let nextDay1 = nextDays[now.getDay() + 1];
-  let nextDay2 = nextDays[now.getDay() + 2];
-  let nextDay3 = nextDays[now.getDay() + 3];
-  let nextDay4 = nextDays[now.getDay() + 4];
-  let nextDay5 = nextDays[now.getDay() + 5];
-  if (now.getDay() > 5) {
-    nextDay1 = nextDays[now.getDay() + 1 - 7];
-  }
-  if (now.getDay() > 4) {
-    nextDay2 = nextDays[now.getDay() + 2 - 7];
-  }
-  if (now.getDay() > 3) {
-    nextDay3 = nextDays[now.getDay() + 3 - 7];
-  }
-  if (now.getDay() > 2) {
-    nextDay4 = nextDays[now.getDay() + 4 - 7];
-  }
-  if (now.getDay() > 1) {
-    nextDay5 = nextDays[now.getDay() + 5 - 7];
-  }
-  let currentnextDay1 = document.querySelector(buttonNextDay[0]);
-  currentnextDay1.innerHTML = nextDay1;
-  let currentnextDay2 = document.querySelector(buttonNextDay[1]);
-  currentnextDay2.innerHTML = nextDay2;
-  let currentnextDay3 = document.querySelector(buttonNextDay[2]);
-  currentnextDay3.innerHTML = nextDay3;
-  let currentnextDay4 = document.querySelector(buttonNextDay[3]);
-  currentnextDay4.innerHTML = nextDay4;
-  let currentnextDay5 = document.querySelector(buttonNextDay[4]);
-  currentnextDay5.innerHTML = nextDay5;
-}
-nextDay();
-
 // search city
 
 function currentSearchTemperature(response) {
@@ -171,7 +128,7 @@ function currentSearchTemperature(response) {
 
   let toFTempConvert = (temperature * 9) / 5 + 32;
   let fTempConvert = Math.round(toFTempConvert);
-  let toCTempConvert = ((fTempConvert - 32) * 5) / 9;
+  let toCTempConvert = ((toFTempConvert - 32) * 5) / 9;
   let cTempConvert = Math.round(toCTempConvert);
 
   function currentSearchTemperatureFahrenheit() {
@@ -210,6 +167,7 @@ function currentSearchTemperature(response) {
     "click",
     currentSearchTemperatureCelsius
   );
+  getForecast(response.data.coord);
 }
 function timeSearchCity(response) {
   let sunriseTime = document.querySelector("#sunrise");
@@ -357,11 +315,11 @@ function emoji(response) {
   } else if (response.data.weather[0].main === "Thunderstorm") {
     mainEmoji.innerHTML = `<img src="media/thunder by Luna Smith.png"  alt="thunder emoji by Luna Smith" width="50" / >`;
   } else if (
-    response.data.list[0].weather[0].main === "Snow" ||
-    response.data.list[0].weather[0].main === "Squall"
+    response.data.weather[0].main === "Snow" ||
+    response.data.weather[0].main === "Squall"
   ) {
     mainEmoji.innerHTML = `<img src="media/snow by Luna Smith.png"  alt="snow emoji by Luna Smith" width="50" / >`;
-  } else if (response.data.list[0].weather[0].main === "Tornado") {
+  } else if (response.data.weather[0].main === "Tornado") {
     mainEmoji.innerHTML = `<img src="media/snow by Luna Smith.png"  alt="tornado emoji by Luna Smith" width="50" / >`;
   }
 }
@@ -369,420 +327,6 @@ function emoji(response) {
 function humiditySearchCity(response) {
   let currentHumidity = document.querySelector("#today-rain");
   currentHumidity.innerHTML = Math.round(response.data.main.humidity);
-}
-function nextHourSearchWeather(response) {
-  let day1Emoji = document.querySelector("#emoji1");
-  let day2Emoji = document.querySelector("#emoji2");
-  let day3Emoji = document.querySelector("#emoji3");
-  let day4Emoji = document.querySelector("#emoji4");
-  let day5Emoji = document.querySelector("#emoji5");
-
-  if (
-    response.data.list[1].weather[0].description === "overcast clouds" ||
-    response.data.list[2].weather[0].description === "overcast clouds" ||
-    response.data.list[3].weather[0].description === "overcast clouds" ||
-    response.data.list[4].weather[0].description === "overcast clouds" ||
-    response.data.list[5].weather[0].description === "overcast clouds"
-  ) {
-    day1Emoji.innerHTML =
-      day2Emoji.innerHTML =
-      day3Emoji.innerHTML =
-      day4Emoji.innerHTML =
-      day5Emoji.innerHTML =
-        `<img src="media/clouds by Luna Smith.png"  alt="clouds emoji by Luna Smith" width="50" / >`;
-  } else if (
-    response.data.list[1].weather[0].description === "clear sky" ||
-    response.data.list[2].weather[0].description === "clear sky" ||
-    response.data.list[3].weather[0].description === "clear sky" ||
-    response.data.list[4].weather[0].description === "clear sky" ||
-    response.data.list[5].weather[0].description === "clear sky"
-  ) {
-    day1Emoji.innerHTML =
-      day2Emoji.innerHTML =
-      day3Emoji.innerHTML =
-      day4Emoji.innerHTML =
-      day5Emoji.innerHTML =
-        `<img src="media/sunny by Luna Smith.png"  alt="sunny emoji by Luna Smith" width="50" / >`;
-  } else if (
-    response.data.list[1].weather[0].description === "few clouds" ||
-    response.data.list[2].weather[0].description === "few clouds" ||
-    response.data.list[3].weather[0].description === "few clouds" ||
-    response.data.list[4].weather[0].description === "few clouds" ||
-    response.data.list[5].weather[0].description === "few clouds"
-  ) {
-    day1Emoji.innerHTML =
-      day2Emoji.innerHTML =
-      day3Emoji.innerHTML =
-      day4Emoji.innerHTML =
-      day5Emoji.innerHTML =
-        `<img src="media/partly sunny by Luna Smith.png"  alt="partly sunny emoji by Luna Smith" width="50" / >`;
-  } else if (
-    response.data.list[1].weather[0].description === "scattered clouds" ||
-    response.data.list[2].weather[0].description === "scattered clouds" ||
-    response.data.list[3].weather[0].description === "scattered clouds" ||
-    response.data.list[4].weather[0].description === "scattered clouds" ||
-    response.data.list[5].weather[0].description === "scattered clouds" ||
-    response.data.list[1].weather[0].description === "broken clouds" ||
-    response.data.list[2].weather[0].description === "broken clouds" ||
-    response.data.list[3].weather[0].description === "broken clouds" ||
-    response.data.list[4].weather[0].description === "broken clouds" ||
-    response.data.list[5].weather[0].description === "broken clouds"
-  ) {
-    day1Emoji.innerHTML =
-      day2Emoji.innerHTML =
-      day3Emoji.innerHTML =
-      day4Emoji.innerHTML =
-      day5Emoji.innerHTML =
-        `<img src="media/broken clouds by Luna Smith.png"  alt="broken clouds emoji by Luna Smith" width="50" / >`;
-  } else if (
-    response.data.list[1].weather[0].main === "Smoke" ||
-    response.data.list[2].weather[0].main === "Smoke" ||
-    response.data.list[3].weather[0].main === "Smoke" ||
-    response.data.list[4].weather[0].main === "Smoke" ||
-    response.data.list[5].weather[0].main === "Smoke" ||
-    response.data.list[1].weather[0].main === "Haze" ||
-    response.data.list[2].weather[0].main === "Haze" ||
-    response.data.list[3].weather[0].main === "Haze" ||
-    response.data.list[4].weather[0].main === "Haze" ||
-    response.data.list[5].weather[0].main === "Haze"
-  ) {
-    day1Emoji.innerHTML =
-      day2Emoji.innerHTML =
-      day3Emoji.innerHTML =
-      day4Emoji.innerHTML =
-      day5Emoji.innerHTML =
-        `<img src="media/smoke by Luna Smith.png"  alt="smoke emoji by Luna Smith" width="50"/ >`;
-  } else if (
-    response.data.list[1].weather[0].main === "Dust" ||
-    response.data.list[2].weather[0].main === "Dust" ||
-    response.data.list[3].weather[0].main === "Dust" ||
-    response.data.list[4].weather[0].main === "Dust" ||
-    response.data.list[5].weather[0].main === "Dust" ||
-    response.data.list[1].weather[0].main === "Ash" ||
-    response.data.list[2].weather[0].main === "Ash" ||
-    response.data.list[3].weather[0].main === "Ash" ||
-    response.data.list[4].weather[0].main === "Ash" ||
-    response.data.list[5].weather[0].main === "Ash" ||
-    response.data.list[1].weather[0].main === "Sand" ||
-    response.data.list[2].weather[0].main === "Sand" ||
-    response.data.list[3].weather[0].main === "Sand" ||
-    response.data.list[4].weather[0].main === "Sand" ||
-    response.data.list[5].weather[0].main === "Sand"
-  ) {
-    day1Emoji.innerHTML =
-      day2Emoji.innerHTML =
-      day3Emoji.innerHTML =
-      day4Emoji.innerHTML =
-      day5Emoji.innerHTML =
-        `<img src="media/sand by Luna Smith.png"  alt="smoke emoji by Luna Smith" width="50"/ >`;
-  } else if (
-    response.data.list[1].weather[0].description === "light rain" ||
-    response.data.list[2].weather[0].description === "light rain" ||
-    response.data.list[3].weather[0].description === "light rain" ||
-    response.data.list[4].weather[0].description === "light rain" ||
-    response.data.list[5].weather[0].description === "light rain" ||
-    response.data.list[1].weather[0].description === "shower rain" ||
-    response.data.list[2].weather[0].description === "shower rain" ||
-    response.data.list[3].weather[0].description === "shower rain" ||
-    response.data.list[4].weather[0].description === "shower rain" ||
-    response.data.list[5].weather[0].description === "shower rain" ||
-    response.data.list[1].weather[0].description ===
-      " light intensity shower rain" ||
-    response.data.list[2].weather[0].description ===
-      " light intensity shower rain" ||
-    response.data.list[3].weather[0].description ===
-      " light intensity shower rain" ||
-    response.data.list[4].weather[0].description ===
-      " light intensity shower rain" ||
-    response.data.list[5].weather[0].description ===
-      " light intensity shower rain" ||
-    response.data.list[1].weather[0].description ===
-      " heavy intensity shower rain" ||
-    response.data.list[2].weather[0].description ===
-      " heavy intensity shower rain" ||
-    response.data.list[3].weather[0].description ===
-      " heavy intensity shower rain" ||
-    response.data.list[4].weather[0].description ===
-      " heavy intensity shower rain" ||
-    response.data.list[5].weather[0].description ===
-      " heavy intensity shower rain" ||
-    response.data.list[1].weather[0].description === " ragged shower rain" ||
-    response.data.list[2].weather[0].description === " ragged shower rain" ||
-    response.data.list[3].weather[0].description === " ragged shower rain" ||
-    response.data.list[4].weather[0].description === " ragged shower rain" ||
-    response.data.list[5].weather[0].description === " ragged shower rain" ||
-    response.data.list[1].weather[0].main === "Drizzle" ||
-    response.data.list[2].weather[0].main === "Drizzle" ||
-    response.data.list[3].weather[0].main === "Drizzle" ||
-    response.data.list[4].weather[0].main === "Drizzle" ||
-    response.data.list[5].weather[0].main === "Drizzle"
-  ) {
-    day1Emoji.innerHTML =
-      day2Emoji.innerHTML =
-      day3Emoji.innerHTML =
-      day4Emoji.innerHTML =
-      day5Emoji.innerHTML =
-        `<img src="media/light rain by Luna Smith.png"  alt="light rain emoji by Luna Smith" width="50" / >`;
-  } else if (
-    response.data.list[1].weather[0].description === "mist" ||
-    response.data.list[2].weather[0].description === "mist" ||
-    response.data.list[3].weather[0].description === "mist" ||
-    response.data.list[4].weather[0].description === "mist" ||
-    response.data.list[5].weather[0].description === "mist" ||
-    response.data.list[1].weather[0].description === "fog" ||
-    response.data.list[2].weather[0].description === "fog" ||
-    response.data.list[3].weather[0].description === "fog" ||
-    response.data.list[4].weather[0].description === "fog" ||
-    response.data.list[5].weather[0].description === "fog"
-  ) {
-    day1Emoji.innerHTML =
-      day2Emoji.innerHTML =
-      day3Emoji.innerHTML =
-      day4Emoji.innerHTML =
-      day5Emoji.innerHTML =
-        `<img src="media/mist by Luna Smith.png"  alt="mist emoji by Luna Smith" width="50"/ >`;
-  } else if (
-    response.data.list[1].weather[0].description === "heavy rain" ||
-    response.data.list[2].weather[0].description === "heavy rain" ||
-    response.data.list[3].weather[0].description === "heavy rain" ||
-    response.data.list[4].weather[0].description === "heavy rain" ||
-    response.data.list[5].weather[0].description === "heavy rain" ||
-    response.data.list[1].weather[0].description === "heavy intensity rain" ||
-    response.data.list[2].weather[0].description === "heavy intensity rain" ||
-    response.data.list[3].weather[0].description === "heavy intensity rain" ||
-    response.data.list[4].weather[0].description === "heavy intensity rain" ||
-    response.data.list[5].weather[0].description === "heavy intensity rain" ||
-    response.data.list[1].weather[0].description === "very heavy rain" ||
-    response.data.list[2].weather[0].description === "very heavy rain" ||
-    response.data.list[3].weather[0].description === "very heavy rain" ||
-    response.data.list[4].weather[0].description === "very heavy rain" ||
-    response.data.list[5].weather[0].description === "very heavy rain" ||
-    response.data.list[1].weather[0].description === "moderate rain" ||
-    response.data.list[2].weather[0].description === "moderate rain" ||
-    response.data.list[3].weather[0].description === "moderate rain" ||
-    response.data.list[4].weather[0].description === "moderate rain" ||
-    response.data.list[5].weather[0].description === "moderate rain" ||
-    response.data.list[1].weather[0].description === "freezing rain" ||
-    response.data.list[2].weather[0].description === "freezing rain" ||
-    response.data.list[3].weather[0].description === "freezing rain" ||
-    response.data.list[4].weather[0].description === "freezing rain" ||
-    response.data.list[5].weather[0].description === "freezing rain"
-  ) {
-    day1Emoji.innerHTML =
-      day2Emoji.innerHTML =
-      day3Emoji.innerHTML =
-      day4Emoji.innerHTML =
-      day5Emoji.innerHTML =
-        `<img src="media/rain by Luna Smith.png"  alt="rain emoji by Luna Smith" width="50" / >`;
-  } else if (
-    response.data.list[1].weather[0].main === "Thunderstorm" ||
-    response.data.list[2].weather[0].main === "Thunderstorm" ||
-    response.data.list[3].weather[0].main === "Thunderstorm" ||
-    response.data.list[4].weather[0].main === "Thunderstorm" ||
-    response.data.list[5].weather[0].main === "Thunderstorm"
-  ) {
-    mainEmoji.innerHTML = `<img src="media/thunder by Luna Smith.png"  alt="thunder emoji by Luna Smith" width="50" / >`;
-  } else if (
-    response.data.list[1].list[0].weather[0].main === "Snow" ||
-    response.data.list[2].list[0].weather[0].main === "Snow" ||
-    response.data.list[3].list[0].weather[0].main === "Snow" ||
-    response.data.list[4].list[0].weather[0].main === "Snow" ||
-    response.data.list[5].list[0].weather[0].main === "Snow" ||
-    response.data.list[1].list[0].weather[0].main === "Squall" ||
-    response.data.list[2].list[0].weather[0].main === "Squall" ||
-    response.data.list[3].list[0].weather[0].main === "Squall" ||
-    response.data.list[4].list[0].weather[0].main === "Squall" ||
-    response.data.list[5].list[0].weather[0].main === "Squall"
-  ) {
-    day1Emoji.innerHTML =
-      day2Emoji.innerHTML =
-      day3Emoji.innerHTML =
-      day4Emoji.innerHTML =
-      day5Emoji.innerHTML =
-        `<img src="media/snow by Luna Smith.png"  alt="snow emoji by Luna Smith" width="50" / >`;
-  } else if (
-    response.data.list[1].list[0].weather[0].main === "Tornado" ||
-    response.data.list[2].list[0].weather[0].main === "Tornado" ||
-    response.data.list[3].list[0].weather[0].main === "Tornado" ||
-    response.data.list[4].list[0].weather[0].main === "Tornado" ||
-    response.data.list[5].list[0].weather[0].main === "Tornado"
-  ) {
-    day1Emoji.innerHTML =
-      day2Emoji.innerHTML =
-      day3Emoji.innerHTML =
-      day4Emoji.innerHTML =
-      day5Emoji.innerHTML =
-        `<img src="media/snow by Luna Smith.png"  alt="tornado emoji by Luna Smith" width="50" / >`;
-  }
-
-  let nextDaySearchSpeedWind1 = document.querySelector("#SpeedWind1");
-  nextDaySearchSpeedWind1.innerHTML = Math.round(
-    response.data.list[0].wind.speed
-  );
-  let nextDaySearchSpeedWind2 = document.querySelector("#SpeedWind2");
-  nextDaySearchSpeedWind2.innerHTML = Math.round(
-    response.data.list[1].wind.speed
-  );
-  let nextDaySearchSpeedWind3 = document.querySelector("#SpeedWind3");
-  nextDaySearchSpeedWind3.innerHTML = Math.round(
-    response.data.list[2].wind.speed
-  );
-  let nextDaySearchSpeedWind4 = document.querySelector("#SpeedWind4");
-  nextDaySearchSpeedWind4.innerHTML = Math.round(
-    response.data.list[3].wind.speed
-  );
-  let nextDaySearchSpeedWind5 = document.querySelector("#SpeedWind5");
-  nextDaySearchSpeedWind5.innerHTML = Math.round(
-    response.data.list[4].wind.speed
-  );
-  let nextDaySearchHumidity1 = document.querySelector("#rain1");
-  nextDaySearchHumidity1.innerHTML = Math.round(
-    response.data.list[0].main.humidity
-  );
-  let nextDaySearchHumidity2 = document.querySelector("#rain2");
-  nextDaySearchHumidity2.innerHTML = Math.round(
-    response.data.list[1].main.humidity
-  );
-  let nextDaySearchHumidity3 = document.querySelector("#rain3");
-  nextDaySearchHumidity3.innerHTML = Math.round(
-    response.data.list[2].main.humidity
-  );
-  let nextDaySearchHumidity4 = document.querySelector("#rain4");
-  nextDaySearchHumidity4.innerHTML = Math.round(
-    response.data.list[3].main.humidity
-  );
-  let nextDaySearchHumidity5 = document.querySelector("#rain5");
-  nextDaySearchHumidity5.innerHTML = Math.round(
-    response.data.list[4].main.humidity
-  );
-
-  let nextHourSearchTime1 = document.querySelector("#current-hour1");
-  let nextSearchHour1 = response.data.list[0].dt;
-  let timezone = response.data.city.timezone;
-  let nextRealHourSearchTime1 = moment
-    .utc(nextSearchHour1, "X")
-    .add(timezone, "seconds")
-    .format("HH:mm");
-  nextHourSearchTime1.innerHTML = nextRealHourSearchTime1;
-
-  let nextHourSearchTime2 = document.querySelector("#current-hour2");
-  let nextSearchHour2 = response.data.list[1].dt;
-  let nextRealHourSearchTime2 = moment
-    .utc(nextSearchHour2, "X")
-    .add(timezone, "seconds")
-    .format("HH:mm");
-  nextHourSearchTime2.innerHTML = nextRealHourSearchTime2;
-
-  let nextHourSearchTime3 = document.querySelector("#current-hour3");
-  let nextSearchHour3 = response.data.list[2].dt;
-  let nextRealHourSearchTime3 = moment
-    .utc(nextSearchHour3, "X")
-    .add(timezone, "seconds")
-    .format("HH:mm");
-  nextHourSearchTime3.innerHTML = nextRealHourSearchTime3;
-
-  let nextHourSearchTime4 = document.querySelector("#current-hour4");
-  let nextSearchHour4 = response.data.list[3].dt;
-  let nextRealHourSearchTime4 = moment
-    .utc(nextSearchHour4, "X")
-    .add(timezone, "seconds")
-    .format("HH:mm");
-  nextHourSearchTime4.innerHTML = nextRealHourSearchTime4;
-
-  let nextHourSearchTime5 = document.querySelector("#current-hour5");
-  let nextSearchHour5 = response.data.list[4].dt;
-  let nextRealHourSearchTime5 = moment
-    .utc(nextSearchHour5, "X")
-    .add(timezone, "seconds")
-    .format("HH:mm");
-  nextHourSearchTime5.innerHTML = nextRealHourSearchTime5;
-
-  let nextdaySearchTemperature1 = document.querySelector("#next-hour-temp-1");
-  let tempSearchHourly1 = Math.round(response.data.list[0].main.temp);
-  nextdaySearchTemperature1.innerHTML = `${tempSearchHourly1}°C`;
-
-  let nextdaySearchTemperature2 = document.querySelector("#next-hour-temp-2");
-  let tempSearchHourly2 = Math.round(response.data.list[1].main.temp);
-  nextdaySearchTemperature2.innerHTML = `${tempSearchHourly2}°C`;
-
-  let nextdaySearchTemperature3 = document.querySelector("#next-hour-temp-3");
-  let tempSearchHourly3 = Math.round(response.data.list[2].main.temp);
-  nextdaySearchTemperature3.innerHTML = `${tempSearchHourly3}°C`;
-
-  let nextdaySearchTemperature4 = document.querySelector("#next-hour-temp-4");
-  let tempSearchHourly4 = Math.round(response.data.list[3].main.temp);
-  nextdaySearchTemperature4.innerHTML = `${tempSearchHourly4}°C`;
-
-  let nextdaySearchTemperature5 = document.querySelector("#next-hour-temp-5");
-  let tempSearchHourly5 = Math.round(response.data.list[4].main.temp);
-  nextdaySearchTemperature5.innerHTML = `${tempSearchHourly5}°C`;
-
-  let toFTempConvert1 = (tempSearchHourly1 * 9) / 5 + 32;
-  let fTempConvert1 = Math.round(toFTempConvert1);
-  let toCTempConvert1 = ((fTempConvert1 - 32) * 5) / 9;
-  let cTempConvert1 = Math.round(toCTempConvert1);
-  let toFTempConvert2 = (tempSearchHourly2 * 9) / 5 + 32;
-  let fTempConvert2 = Math.round(toFTempConvert2);
-  let toCTempConvert2 = ((fTempConvert2 - 32) * 5) / 9;
-  let cTempConvert2 = Math.round(toCTempConvert2);
-  let toFTempConvert3 = (tempSearchHourly3 * 9) / 5 + 32;
-  let fTempConvert3 = Math.round(toFTempConvert3);
-  let toCTempConvert3 = ((fTempConvert3 - 32) * 5) / 9;
-  let cTempConvert3 = Math.round(toCTempConvert3);
-  let toFTempConvert4 = (tempSearchHourly4 * 9) / 5 + 32;
-  let fTempConvert4 = Math.round(toFTempConvert4);
-  let toCTempConvert4 = ((fTempConvert4 - 32) * 5) / 9;
-  let cTempConvert4 = Math.round(toCTempConvert4);
-  let toFTempConvert5 = (tempSearchHourly5 * 9) / 5 + 32;
-  let fTempConvert5 = Math.round(toFTempConvert5);
-  let toCTempConvert5 = ((fTempConvert5 - 32) * 5) / 9;
-  let cTempConvert5 = Math.round(toCTempConvert5);
-
-  function currentNextTemperatureFahrenheit() {
-    let currentNextFTemperature1 = document.querySelector("#next-hour-temp-1");
-    currentNextFTemperature1.innerHTML = `${fTempConvert1}°F`;
-
-    let currentNextFTemperature2 = document.querySelector("#next-hour-temp-2");
-    currentNextFTemperature2.innerHTML = `${fTempConvert2}°F`;
-
-    let currentNextFTemperature3 = document.querySelector("#next-hour-temp-3");
-    currentNextFTemperature3.innerHTML = `${fTempConvert3}°F`;
-
-    let currentNextFTemperature4 = document.querySelector("#next-hour-temp-4");
-    currentNextFTemperature4.innerHTML = `${fTempConvert4}°F`;
-
-    let currentNextFTemperature5 = document.querySelector("#next-hour-temp-5");
-    currentNextFTemperature5.innerHTML = `${fTempConvert5}°F`;
-    currentDegreeCelsius.classList.remove("celsius");
-    currentDegreeFahrenheit.classList.add("celsius");
-  }
-  let currentDegreeFahrenheit = document.querySelector("#degree-fahrenheit");
-  currentDegreeFahrenheit.addEventListener(
-    "click",
-    currentNextTemperatureFahrenheit
-  );
-
-  function currentNextTemperatureCelsius() {
-    let currentNextCTemperature1 = document.querySelector("#next-hour-temp-1");
-    currentNextCTemperature1.innerHTML = `${cTempConvert1}°C`;
-
-    let currentNextCTemperature2 = document.querySelector("#next-hour-temp-2");
-    currentNextCTemperature2.innerHTML = `${cTempConvert2}°C`;
-
-    let currentNextCTemperature3 = document.querySelector("#next-hour-temp-3");
-    currentNextCTemperature3.innerHTML = `${cTempConvert3}°C`;
-
-    let currentNextCTemperature4 = document.querySelector("#next-hour-temp-4");
-    currentNextCTemperature4.innerHTML = `${cTempConvert4}°C`;
-
-    let currentNextCTemperature5 = document.querySelector("#next-hour-temp-5");
-    currentNextCTemperature5.innerHTML = `${cTempConvert5}°C`;
-
-    currentDegreeCelsius.classList.add("celsius");
-    currentDegreeFahrenheit.classList.remove("celsius");
-  }
-  let currentDegreeCelsius = document.querySelector("#degree-celsius");
-  currentDegreeCelsius.addEventListener("click", currentNextTemperatureCelsius);
 }
 
 function displayCity(response) {
@@ -804,12 +348,10 @@ form.addEventListener("submit", formCitySearch);
 function showCurrentPosition(position) {
   let apiKey = "735bf932678c0291fa1c42303b18350e";
   let apiEndElement = "https://api.openweathermap.org/data/2.5/weather?";
-  let apiEndElementHourly = "https://api.openweathermap.org/data/2.5/forecast?";
   let latitude = position.coords.latitude;
   let longitude = position.coords.longitude;
   let units = "metric";
   let apiUrl = `${apiEndElement}lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=${units}`;
-  let apiUrlHourly = `${apiEndElementHourly}lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=${units}`;
 
   axios.get(apiUrl).then(emoji);
   axios.get(apiUrl).then(currentSearchTemperature);
@@ -817,9 +359,6 @@ function showCurrentPosition(position) {
   axios.get(apiUrl).then(speedWindSearchCity);
   axios.get(apiUrl).then(humiditySearchCity);
   axios.get(apiUrl).then(displayCity);
-  axios.get(apiUrlHourly).then(nextHourSearchWeather);
-
-  showWeatherForecastTable();
 }
 function showMyCity(event) {
   event.preventDefault();
@@ -834,10 +373,8 @@ myCity.addEventListener("click", showMyCity);
 function initialCity(city) {
   let apiKey = "735bf932678c0291fa1c42303b18350e";
   let apiEndElement = "https://api.openweathermap.org/data/2.5/weather?";
-  let apiEndElementHourly = "https://api.openweathermap.org/data/2.5/forecast?";
   let units = "metric";
   let apiUrl = `${apiEndElement}q=${city}&appid=${apiKey}&units=${units}`;
-  let apiUrlHourly = `${apiEndElementHourly}q=${city}&appid=${apiKey}&units=${units}`;
 
   axios.get(apiUrl).then(emoji);
   axios.get(apiUrl).then(currentSearchTemperature);
@@ -845,122 +382,192 @@ function initialCity(city) {
   axios.get(apiUrl).then(speedWindSearchCity);
   axios.get(apiUrl).then(humiditySearchCity);
   axios.get(apiUrl).then(displayCity);
-  axios.get(apiUrlHourly).then(nextHourSearchWeather);
-
-  showWeatherForecastTable();
 }
 
 initialCity("New York");
 
 // next day weather look
 
-function showWeatherForecastTable() {
-  let button0 = document.querySelector("#column0");
-  let button1 = document.querySelector("#column1");
-  let button2 = document.querySelector("#column2");
-  let button3 = document.querySelector("#column3");
-  let button4 = document.querySelector("#column4");
-  let button5 = document.querySelector("#column5");
-  let nextDay0Button = document.querySelector("#current-day");
-  let nextDay1Button = document.querySelector("#button-day1");
-  let nextDay2Button = document.querySelector("#button-day2");
-  let nextDay3Button = document.querySelector("#button-day3");
-  let nextDay4Button = document.querySelector("#button-day4");
-  let nextDay5Button = document.querySelector("#button-day5");
-
-  nextDay0Button.addEventListener("click", showWeatherForecastNextDay0);
-  nextDay1Button.addEventListener("click", showWeatherForecastNextDay1);
-  nextDay2Button.addEventListener("click", showWeatherForecastNextDay2);
-  nextDay3Button.addEventListener("click", showWeatherForecastNextDay3);
-  nextDay4Button.addEventListener("click", showWeatherForecastNextDay4);
-  nextDay5Button.addEventListener("click", showWeatherForecastNextDay5);
-
-  function showWeatherForecastNextDay0(event) {
-    button0.classList.add("today");
-    button1.classList.remove("today");
-    button2.classList.remove("today");
-    button3.classList.remove("today");
-    button4.classList.remove("today");
-    button5.classList.remove("today");
-    nextDay0Button.classList.add("button-today");
-    nextDay1Button.classList.remove("button-today");
-    nextDay2Button.classList.remove("button-today");
-    nextDay3Button.classList.remove("button-today");
-    nextDay4Button.classList.remove("button-today");
-    nextDay5Button.classList.remove("button-today");
+function getForecast(coordinates) {
+  let apiKey = "735bf932678c0291fa1c42303b18350e";
+  let apiEndElementDaily = "https://api.openweathermap.org/data/2.5/onecall?";
+  let units = "metric";
+  let apiUrlDaily = `${apiEndElementDaily}lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=${units}`;
+  axios.get(apiUrlDaily).then(displayForecast);
+  let nextDayButtonC = document.querySelector("#degree-celsius");
+  nextDayButtonC.addEventListener("click", displayForecastCelsius);
+  let nextDayButtonF = document.querySelector("#degree-fahrenheit");
+  nextDayButtonF.addEventListener("click", displayForecastFahrenheit);
+  function displayForecastCelsius() {
+    axios.get(apiUrlDaily).then(displayForecast);
   }
-  function showWeatherForecastNextDay1(event) {
-    button0.classList.remove("today");
-    button1.classList.add("today");
-    button2.classList.remove("today");
-    button3.classList.remove("today");
-    button4.classList.remove("today");
-    button5.classList.remove("today");
-    nextDay0Button.classList.remove("button-today");
-    nextDay1Button.classList.add("button-today");
-    nextDay2Button.classList.remove("button-today");
-    nextDay3Button.classList.remove("button-today");
-    nextDay4Button.classList.remove("button-today");
-    nextDay5Button.classList.remove("button-today");
+  function displayForecastFahrenheit() {
+    axios.get(apiUrlDaily).then(displayForecastF);
   }
+}
 
-  function showWeatherForecastNextDay2(event) {
-    button0.classList.remove("today");
-    button1.classList.remove("today");
-    button2.classList.add("today");
-    button3.classList.remove("today");
-    button4.classList.remove("today");
-    button5.classList.remove("today");
-    nextDay0Button.classList.remove("button-today");
-    nextDay1Button.classList.remove("button-today");
-    nextDay2Button.classList.add("button-today");
-    nextDay3Button.classList.remove("button-today");
-    nextDay4Button.classList.remove("button-today");
-    nextDay5Button.classList.remove("button-today");
-  }
+function displayFormatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  return days[day];
+}
 
-  function showWeatherForecastNextDay3(event) {
-    button0.classList.remove("today");
-    button1.classList.remove("today");
-    button2.classList.remove("today");
-    button3.classList.add("today");
-    button4.classList.remove("today");
-    button5.classList.remove("today");
-    nextDay0Button.classList.remove("button-today");
-    nextDay1Button.classList.remove("button-today");
-    nextDay2Button.classList.remove("button-today");
-    nextDay3Button.classList.add("button-today");
-    nextDay4Button.classList.remove("button-today");
-    nextDay5Button.classList.remove("button-today");
-  }
+function displayFormatDate(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let nextDay = date.getDate();
+  let months = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
+  let month = months[date.getMonth()];
 
-  function showWeatherForecastNextDay4(event) {
-    button0.classList.remove("today");
-    button1.classList.remove("today");
-    button2.classList.remove("today");
-    button3.classList.remove("today");
-    button4.classList.add("today");
-    button5.classList.remove("today");
-    nextDay0Button.classList.remove("button-today");
-    nextDay1Button.classList.remove("button-today");
-    nextDay2Button.classList.remove("button-today");
-    nextDay3Button.classList.remove("button-today");
-    nextDay4Button.classList.add("button-today");
-    nextDay5Button.classList.remove("button-today");
+  return `${nextDay} ${month}`;
+}
+function displayEmoji(emojiDescripton) {
+  if (emojiDescripton.description === "overcast clouds") {
+    return `<img src="media/clouds by Luna Smith.png"  alt="clouds emoji by Luna Smith" width="50" / >`;
+  } else if (emojiDescripton.description === "clear sky") {
+    return `<img src="media/sunny by Luna Smith.png"  alt="sunny emoji by Luna Smith" width="50" / >`;
+  } else if (emojiDescripton.description === "few clouds") {
+    return `<img src="media/partly sunny by Luna Smith.png"  alt="partly sunny emoji by Luna Smith" width="50" / >`;
+  } else if (
+    emojiDescripton.description === "scattered clouds" ||
+    emojiDescripton.description === "broken clouds"
+  ) {
+    return `<img src="media/broken clouds by Luna Smith.png"  alt="broken clouds emoji by Luna Smith" width="50" / >`;
+  } else if (
+    emojiDescripton.main === "Smoke" ||
+    emojiDescripton.main === "Haze"
+  ) {
+    return `<img src="media/smoke by Luna Smith.png"  alt="smoke emoji by Luna Smith" width="50"/ >`;
+  } else if (
+    emojiDescripton.main === "Dust" ||
+    emojiDescripton.main === "Ash" ||
+    emojiDescripton.main === "Sand"
+  ) {
+    return `<img src="media/sand by Luna Smith.png"  alt="smoke emoji by Luna Smith" width="50"/ >`;
+  } else if (
+    emojiDescripton.description === "light rain" ||
+    emojiDescripton.description === "shower rain" ||
+    emojiDescripton.description === " light intensity shower rain" ||
+    emojiDescripton.description === " heavy intensity shower rain" ||
+    emojiDescripton.description === " ragged shower rain" ||
+    emojiDescripton.main === "Drizzle"
+  ) {
+    return `<img src="media/light rain by Luna Smith.png"  alt="light rain emoji by Luna Smith" width="50" / >`;
+  } else if (
+    emojiDescripton.description === "mist" ||
+    emojiDescripton.description === "fog"
+  ) {
+    return `<img src="media/mist by Luna Smith.png"  alt="mist emoji by Luna Smith" width="50"/ >`;
+  } else if (
+    emojiDescripton.description === "heavy rain" ||
+    emojiDescripton.description === "heavy intensity rain" ||
+    emojiDescripton.description === "very heavy rain" ||
+    emojiDescripton.description === "moderate rain" ||
+    emojiDescripton.description === "freezing rain"
+  ) {
+    return `<img src="media/rain by Luna Smith.png"  alt="rain emoji by Luna Smith" width="50" / >`;
+  } else if (emojiDescripton.main === "Thunderstorm") {
+    return `<img src="media/thunder by Luna Smith.png"  alt="thunder emoji by Luna Smith" width="50" / >`;
+  } else if (
+    emojiDescripton.main === "Snow" ||
+    emojiDescripton.main === "Squall"
+  ) {
+    return `<img src="media/snow by Luna Smith.png"  alt="snow emoji by Luna Smith" width="50" / >`;
+  } else if (emojiDescripton.main === "Tornado") {
+    return `<img src="media/snow by Luna Smith.png"  alt="tornado emoji by Luna Smith" width="50" / >`;
   }
+}
+function displayForecast(response) {
+  let forecast = response.data.daily;
+  let forecastElement = document.querySelector("#row-forecast1");
+  let forecastHTML = `<div class="row">`;
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 4) {
+      forecastHTML =
+        forecastHTML +
+        `
+               <div class="col day" id="column">
+                <div class="main" id="table-button">
+                  <button class="button-day button-day" id="button-day">
+                    ${displayFormatDay(forecastDay.dt)}
+                  </button>
+                </div>
+                <div class="table-details">
+                  <div id="current-hour-table"> ${displayFormatDate(
+                    forecastDay.dt
+                  )}
+                    </div>
+                  <div id="emoji">
+                    ${displayEmoji(forecastDay.weather[0])}
+                  </div>
+                  <div class="day-temperature-table" id="next-hour-temp">
+                  ${Math.round(forecastDay.temp.day)}°C </div>
+                  <div id="tableSpeedWind">
+                    🍃<span id="SpeedWind">${Math.round(
+                      forecastDay.wind_speed
+                    )}</span>
+                  </div>
+                  <div id="tableHumidity">💧<span id="rain">${
+                    forecastDay.humidity
+                  }</span>%</div>
+                </div>
+              </div>`;
+    }
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
 
-  function showWeatherForecastNextDay5(event) {
-    button0.classList.remove("today");
-    button1.classList.remove("today");
-    button2.classList.remove("today");
-    button3.classList.remove("today");
-    button4.classList.remove("today");
-    button5.classList.add("today");
-    nextDay0Button.classList.remove("button-today");
-    nextDay1Button.classList.remove("button-today");
-    nextDay2Button.classList.remove("button-today");
-    nextDay3Button.classList.remove("button-today");
-    nextDay4Button.classList.remove("button-today");
-    nextDay5Button.classList.add("button-today");
-  }
+function displayForecastF(response) {
+  let forecast = response.data.daily;
+  let forecastElement = document.querySelector("#row-forecast1");
+  let forecastHTML = `<div class="row">`;
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 4) {
+      forecastHTML =
+        forecastHTML +
+        `
+               <div class="col day" id="column">
+                <div class="main" id="table-button">
+                  <button class="button-day button-day" id="button-day">
+                    ${displayFormatDay(forecastDay.dt)}
+                  </button>
+                </div>
+                <div class="table-details">
+                  <div id="current-hour-table"> ${displayFormatDate(
+                    forecastDay.dt
+                  )}
+                    </div>
+                  <div id="emoji">
+                    ${displayEmoji(forecastDay.weather[0])}
+                  </div>
+                  <div class="day-temperature-table" id="next-hour-temp">
+                  ${Math.round((forecastDay.temp.day * 9) / 5 + 32)}°F </div>
+                  <div id="tableSpeedWind">
+                    🍃<span id="SpeedWind">${Math.round(
+                      forecastDay.wind_speed
+                    )}</span>
+                  </div>
+                  <div id="tableHumidity">💧<span id="rain">${
+                    forecastDay.humidity
+                  }</span>%</div>
+                </div>
+              </div>`;
+    }
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
 }

@@ -53,6 +53,10 @@ h2 {
 .sunset {
   color: #2e486b;
 }
+.main-content {
+  position: relative;
+  bottom: 35px;
+}
 .city-form {
   text-align: center;
   display: block;
@@ -74,7 +78,7 @@ h2 {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 10px;
+  margin: 5px;
 }
 .degree {
   padding: 10px 80px;
@@ -103,7 +107,7 @@ h2 {
 .forecast-table {
   position: relative;
   bottom: 85px;
-  padding: 10px;
+  padding-top: 5px;
 }
 
 .day-image {
@@ -147,7 +151,6 @@ h2 {
   color: #fff;
   font-weight: bold;
   font-size: 18px;
-  padding: 5px 5px;
 }
 .button-today {
   background: rgb(239, 239, 106);
