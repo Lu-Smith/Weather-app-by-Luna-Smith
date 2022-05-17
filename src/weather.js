@@ -396,13 +396,13 @@ function getForecast(coordinates) {
   axios.get(apiUrlDaily).then(displayForecast);
 
   function displayNextDayForecast(event) {
-    displayNextDayForecast = function () {};
+    displayForecast = function () {};
     event.preventDefault();
     axios.get(apiUrlDaily).then(displayForecast);
   }
 
   function displayconvertFTemp(event) {
-    displayNextDayForecast = function () {};
+    displayForecastF = function () {};
     event.preventDefault();
     axios.get(apiUrlDaily).then(displayForecastF);
   }
@@ -537,7 +537,6 @@ function displayForecast(response) {
   });
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
-  displayForecast = function () {};
 }
 
 function displayForecastF(response) {
@@ -579,5 +578,4 @@ function displayForecastF(response) {
   });
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
-  displayForecastF = function () {};
 }
