@@ -395,17 +395,23 @@ function getForecast(coordinates) {
   let apiUrlDaily = `${apiEndElementDaily}lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=${units}`;
   axios.get(apiUrlDaily).then(displayForecast);
 
-  function displayTodayForecast(event) {
-    axios.get(apiUrlDaily).then(displayTodayForecastTable);
-  }
   function displayNextDayForecast(event) {
+    displayNextDayForecast = function () {};
+    event.preventDefault();
     axios.get(apiUrlDaily).then(displayForecast);
   }
-  let todayButton = document.querySelector("#current-day");
-  todayButton.addEventListener("click", displayTodayForecast);
 
-  let nextButton = document.querySelector("#row-forecast1");
-  nextButton.addEventListener("click", displayNextDayForecast);
+  function displayconvertFTemp(event) {
+    displayNextDayForecast = function () {};
+    event.preventDefault();
+    axios.get(apiUrlDaily).then(displayForecastF);
+  }
+
+  let convertFButton = document.querySelector("#degree-fahrenheit");
+  convertFButton.addEventListener("click", displayconvertFTemp);
+
+  let convertCButton = document.querySelector("#degree-celsius");
+  convertCButton.addEventListener("click", displayNextDayForecast);
 }
 
 function displayFormatDay(timestamp) {
@@ -435,13 +441,6 @@ function displayFormatDate(timestamp) {
   let month = months[date.getMonth()];
 
   return `${nextDay} ${month}`;
-}
-
-function displayFormatHour(timestamp) {
-  let date = new Date(timestamp * 1000);
-  let hour = date.getHours();
-  let minute = date.getMinutes();
-  return `${hour}:${minute}0`;
 }
 function displayEmoji(emojiDescripton) {
   if (emojiDescripton.description === "overcast clouds") {
@@ -499,46 +498,6 @@ function displayEmoji(emojiDescripton) {
     return `<img src="media/snow by Luna Smith.png"  alt="tornado emoji by Luna Smith" width="50" / >`;
   }
 }
-function displayTodayForecastTable(response) {
-  let forecastHourly = response.data.hourly;
-  let forecastHourlyElement = document.querySelector("#row-forecast1");
-  let forecastHourlyHTML = `<div class="row">`;
-  forecastHourly.forEach(function (forecastDay, index) {
-    if (index < 4) {
-      forecastHourlyHTML =
-        forecastHourlyHTML +
-        `
-               <div class="col day" id="column">
-                <div class="main" id="table-button">
-                  <button class="button-day button-day" id="button-day">
-                   >
-                  </button>
-                </div>
-                <div class="table-details">
-                  <div id="current-hour-table"> ${displayFormatHour(
-                    forecastDay.dt
-                  )}
-                    </div>
-                  <div id="emoji">
-                    ${displayEmoji(forecastDay.weather[0])}
-                  </div>
-                  <div class="day-temperature-table" id="next-hour-temp">
-                 ${Math.round(forecastDay.temp)}°C </div>
-                  <div id="tableSpeedWind">
-                    🍃<span id="SpeedWind">${Math.round(
-                      forecastDay.wind_speed
-                    )}</span>
-                  </div>
-                  <div id="tableHumidity">💧<span id="rain">${
-                    forecastDay.humidity
-                  }</span>%</div>
-                </div>
-              </div>`;
-    }
-  });
-  forecastHourlyHTML = forecastHourlyHTML + `</div>`;
-  forecastHourlyElement.innerHTML = forecastHourlyHTML;
-}
 function displayForecast(response) {
   let forecast = response.data.daily;
   let forecastElement = document.querySelector("#row-forecast1");
@@ -578,4 +537,46 @@ function displayForecast(response) {
   });
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
+}
+
+function displayForecastF(response) {
+  let forecast = response.data.daily;
+  let forecastElement = document.querySelector("#row-forecast1");
+  let forecastHTML = `<div class="row">`;
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 4) {
+      forecastHTML =
+        forecastHTML +
+        `
+               <div class="col day" id="column">
+                <div class="main" id="table-button">
+                  <button class="button-day button-day" id="button-day">
+                    ${displayFormatDay(forecastDay.dt)}
+                  </button>
+                </div>
+                <div class="table-details">
+                  <div id="current-hour-table"> ${displayFormatDate(
+                    forecastDay.dt
+                  )}
+                    </div>
+                  <div id="emoji">
+                    ${displayEmoji(forecastDay.weather[0])}
+                  </div>
+                  <div class="day-temperature-table" id="next-hour-temp">
+                 ${Math.round((forecastDay.temp.day * 9) / 5 + 32)}°F </div>
+                  <div id="tableSpeedWind">
+                    🍃<span id="SpeedWind">${Math.round(
+                      forecastDay.wind_speed
+                    )}</span>
+                  </div>
+                  <div id="tableHumidity">💧<span id="rain">${
+                    forecastDay.humidity
+                  }</span>%</div>
+                </div>
+              </div>`;
+    }
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+  displayForecastF = function () {};
 }
