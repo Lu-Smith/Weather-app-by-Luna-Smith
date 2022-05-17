@@ -396,15 +396,15 @@ function getForecast(coordinates) {
   axios.get(apiUrlDaily).then(displayForecast);
 
   function displayNextDayForecast(event) {
-    displayForecast = function () {};
     event.preventDefault();
     axios.get(apiUrlDaily).then(displayForecast);
+    displayNextDayForecast = function () {};
   }
 
   function displayconvertFTemp(event) {
-    displayForecastF = function () {};
     event.preventDefault();
     axios.get(apiUrlDaily).then(displayForecastF);
+    displayconvertFTemp = function () {};
   }
 
   let convertFButton = document.querySelector("#degree-fahrenheit");
