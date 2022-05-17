@@ -537,6 +537,7 @@ function displayForecast(response) {
   });
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
+  displayForecast = function () {};
 }
 
 function displayForecastF(response) {
