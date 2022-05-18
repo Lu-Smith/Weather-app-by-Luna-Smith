@@ -359,7 +359,6 @@ function showCurrentPosition(position) {
   axios.get(apiUrl).then(speedWindSearchCity);
   axios.get(apiUrl).then(humiditySearchCity);
   axios.get(apiUrl).then(displayCity);
-  console.log(position);
 }
 function showMyCity(event) {
   event.preventDefault();
